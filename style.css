@@ -16,7 +16,7 @@ body, html {
 }
 
 header {
-    background-color: #f8a5c2;
+    background-color: #141619;
     padding: 10px;
     position: sticky;
     top: 0;
@@ -25,12 +25,14 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     height: 50px;
+    color: white;
 }
 .logo {
     font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .navbar ul {
@@ -43,17 +45,18 @@ header {
 .navbar ul li {
     font-size: 20px;
     padding: 0 15px;
+    
 }
 .navbar li a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: bold;
     transition: color 0.3s ease;
     
 }
 
 .navbar a:hover {
-    color: white;
+    color: #ee6b6b;
 }
 
 .content1 {
@@ -61,7 +64,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #6c5b7b;
+    background-color: #2C2E3A;
     color: white;
     text-align: center;
     padding: 20px;
@@ -112,15 +115,65 @@ header {
     }
 }
 
-/* ------------------------Skills-------------------------- */
+/* --------------------button------------------ */
+
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.download-button .icon {
+  margin-right: 5px;
+}
+
+.download-button::before,
+.download-button::after {
+  content: '';
+  background: rgba(255, 255, 255, 0.4);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.download-button::after {
+  width: 300%;
+  height: 300%;
+}
+
+.download-button:hover::before,
+.download-button:hover::after {
+  opacity: 1;
+  animation: ripple 1s infinite;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
 
 
-
-
-
-
-
-
+/* ----------------------Skills---------------------- */
 
 
 #skills {
@@ -128,14 +181,13 @@ header {
     text-align: center;
     padding: 20px;
     flex-direction: column;
-    background: hsl(7, 44%, 88%);
+    background: #050A44;
     position: relative;
-
+    color: white;
 }
 
 .skills-header {
     align-self: center;
-    background-color: black;
     color: white;
     display: inline-block;
     padding: 10px 30px;
@@ -206,12 +258,12 @@ header {
     }
 }
 
-/* --------------------------Aboutme------------------------- */
 
 
+/* ------------------------about---------------------- */
 
 #aboutme{
-    background: rgb(241, 241, 215);
+    background: #AC8968;
 }
 
 .header {
@@ -260,7 +312,7 @@ header {
 .columns {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-basis: 100%;
 }
 
@@ -289,117 +341,113 @@ li span {
 }
 
 li:hover {
-    color: #ff0000;
+    color: white;
     transition: color 0.3s ease;
 }
 
 
 
-/* -------------------------Foooter------------------------------ */
+
+/* --------------------------contactme------------------------- */
 
 
 
 
-
-
-
-
-
-
-.logo {
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: black;
-}
-
-.introduction {
-    padding: 20px;
-    text-align: center;
-    background: #d4cd91;
-}
-
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    background: #e0ddbc;
-}
-
-.project-card {
-    width: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-}
-
-.project-card img {
-    width: 100%;
-    height: auto;
-}
-
-.project-info {
-    padding: 15px;
-    text-align: center;
-}
-
-footer {
-    background-color: hwb(0 82% 8%);
-    padding: 20px;
-    text-align: center;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-.footer-section {
-    margin: 10px;
-}
-.footer-section li a {
-    text-decoration: none;
-    color: #555;
-}
-.footer-section li a:hover {
-    transform: translateY(-10px);
-}
-#s-img {
-    font-size: 30px;
-    padding-right: 10px;
-}
-
-.footer-bottom {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
-}
-
-@media (max-width: 768px) {
-    .projects {
-        flex-direction: column;
-        align-items: center;
+    .logo {
+        font-weight: bold;
     }
 
     nav ul {
-        flex-direction: column;
-        gap: 10px;
+        list-style: none;
+        display: flex;
+        gap: 20px;
     }
-}
+
+    nav a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .introduction {
+        padding: 20px;
+        text-align: center;
+        background: #865D36;
+    }
+
+    .projects {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        background: #865D36;
+    }
+
+    .project-card , a {
+        width: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+         text-decoration: none;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-info {
+        padding: 15px;
+        text-align: center;
+    }
+
+    footer {
+        background-color: #B3B4BD;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .footer-section {
+        margin: 10px;
+    }
+    .footer-section li a {
+        text-decoration: none;
+        color: #555;
+    }
+    .footer-section li a:hover {
+        transform: translateY(-10px);
+    }
+    #s-img {
+        font-size: 30px;
+        padding-right: 10px;
+    }
+
+    .footer-bottom {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #555;
+    }
+
+    @media (max-width: 768px) {
+        .projects {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav ul {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
