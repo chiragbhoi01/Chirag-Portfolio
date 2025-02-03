@@ -1,429 +1,591 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Chirag Bhoi - Web Developer & Research Analyst | Portfolio showcasing web development projects, technical skills, and research experience.">
-      <meta name="keywords" content="Chirag Bhoi, Web Developer, Research Analyst, Portfolio, Web Development, Front-end Developer, Full Stack Development, JavaScript, HTML, CSS, React, Node.js, Portfolio Website, Research Analyst Portfolio">
-      <meta name="author" content="Chirag Bhoi">
-      <meta property="og:title" content="Chirag Bhoi - Web Developer & Research Analyst Portfolio">
-      <meta property="og:description" content="Explore Chirag Bhoi's portfolio for web development projects, research analysis, and technical expertise.">
-      <meta property="og:image" content="path_to_image.jpg">
-      <meta property="og:url" content="https://www.chiragbhoimarshal.netlify.app">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="icon" type="image/x-icon" href="/images/favicon logo.png">
-    <title>Portfolio - Chirag Bhoi</title>
-
-    <!-- bootstrap css cdn link  -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-
-    <!-- custom css file -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <!-- google font link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- bootstrap icon cdn link  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chirag Bhoi's Portfolio">
+    <meta name="keywords" content="Chirag Bhoi, Portfolio, Web Developer, Projects">
+    <meta name="author" content="Chirag Bhoi">
+    <title>Chirag Bhoi's Portfolio</title>
+    <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/newcss.css" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
-
-    <!-- for adding animation to website we have use AOS library 
-    AOS Library css file cdn link -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <!-- jquery cdn link  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
-  <body>
-    <!-- navbar starts -->
-    <nav
-      id="navbar-top"
-      class="navbar navbar-expand-lg navbar-light bg-white sticky-top"
-    >
-      <div class="container-fluid px-5">
-        <a class="navbar-brand fw-bold fs-2" href="#" style="color: #3f396d"
-          >Portfolio</a
-        >
-        <button
-          class="nav-menu d-md-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <i class="bi bi-menu-button-fill"></i>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-center"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav gap-4" style="font-size: 1.1rem">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+
+  <body oncontextmenu="return false">
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html">
+          <img src="path/to/your/logo.svg" alt="Chirag Bhoi Logo" width="100" height="100">
+        </a>
+        <a href="#" class="nav__logo">Chirag Portfolio</a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list grid">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">
+                <i class="uil uil-estate nav__icon"></i>Home
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#service">Service</a>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">
+                <i class="uil uil-user nav__icon"></i>About
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
+            <li class="nav__item">
+              <a href="#skills" class="nav__link">
+                <i class="uil uil-file-alt nav__icon"></i>Skills
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
+            
+            <li class="nav__item">
+              <a href="#portfolio" class="nav__link">
+                <i class="uil uil-scenery nav__icon"></i>Projects
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">
+                <i class="uil uil-message nav__icon"></i>Contact-Me
+              </a>
             </li>
           </ul>
+          <i class="uil uil-times nav__close" id="nav-close"></i>
         </div>
-        <button class="c-btn ms-4 py-2 px-4 rounded-pill d-none d-md-block"><a
-          target="_blank" href="https://drive.google.com/file/d/1azEyrIBok1aOdgnDz_5Rb-JnBfYYcYzm/view"
-          download="DownloadCV"
-          style="text-decoration: none;color: #fff;"
-          >Download Resume</a</button>
-      </div>
-    </nav>
-    <!-- navbar ends here -->
+        <div class="nav__btns">
+          <!-- Theme change button -->
+          <i class="uil uil-moon change-theme" id="theme-button"></i>
 
-    <!-- home section starts  -->
-    <section class="home pt-5 pb-5" id="home">
-      <div class="row justify-content-evenly align-middle">
-        <!-- here data-aos is used for adding aos animation  -->
-        <div class="col-10 col-md-6 text-center text-md-start" data-aos="slide-right">
-          <h2 style="color: #3f396d">
-            Hello! I Am <br /><span class="c-orange">Chirag Bhoi</span>
-          </h2>
-          <p class="text-muted">
-            I am a dedicated Frontend Developer with expertise in HTML, CSS, JavaScript, and React, focused on creating responsive and user-friendly web applications
-          </p>
-          <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
-            <a target="_blank" href="https://drive.google.com/file/d/1azEyrIBok1aOdgnDz_5Rb-JnBfYYcYzm/view"
-            download="DownloadCV"
-            style="text-decoration: none;color: #fff;" >Hire Me</a>
-          </button>
-          <a href="" class="link ms-4 d-none">See My Work</a>
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="uil uil-apps"></i>
+          </div>
         </div>
-        <div class="col-10 col-md-4 d-none d-md-block">
-          <img src="images/developer logo.png" class="img-fluid" alt="" />
-        </div>
-      </div>
-    </section>
-    <!-- home section ends here -->
+      </nav>
+    </header>
+    <!-- main-->
 
-    <!-- expertise section starts -->
-    <section class="expertise mt-5" id="service">
-      <div class="heading text-center">
-        <small>My Expertise</small>
-        <h3>
-          Provide Wide Range of <br />
-          Digital Services
-        </h3>
-      </div>
-      <div class="row justify-content-evenly mt-5">
-        <div class="col-10 col-md-4" data-aos="fade-up">
-          <div class="service-card">
-            <div class="img">
-              <img
-                src="images/service-icon1.png"
-                class="w-25 img-fluid img"
-                alt=""
-              />
-            </div>
-            <div class="content mt-3">
-              <h4>Web Design</h4>
-              <p class="text-muted">
-                Every project in my portfolio is built to scale as your business grows. I design and develop flexible, future-proof websites that evolve with your needs—always staying ahead of trends while delivering timeless functionality.
-              </p>
-              <a href="" class="link">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-10" data-aos="fade-up">
-          <div class="service-card">
-            <div class="img">
-              <img
-                src="images/service-icon2.png"
-                class="w-25 img-fluid img"
-                alt=""
-              />
-            </div>
-            <div class="content mt-3">
-              <h4>Web Development</h4>
-              <p class="text-muted">
-                I approach every project with a user-first mindset. My portfolio showcases work that is visually intuitive, emotionally engaging, and backed by clean, efficient code to ensure smooth, user-friendly experiences.
-              </p>
-              <a href="" class="link">Read More</a>
-            </div>
-          </div>
-        </div>
-        
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- expertise section ends here -->
+    <main class="main">
+      <!--========================= Home =====================-->
 
-    <!-- skill section starts -->
-    <section class="skill mt-5 py-5" id="about">
-      <div class="row justify-content-evenly">
-        <div class="col-10 col-md-5 skill-with-progress" data-aos="slide-right">
-          <div class="row justify-content-evenly">
-            <div class="col-10 col-md-6">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress html">
-                  <span class="progress-value html-progress">0%</span>
-                </div>
-                <br />
-                <span class="text">HTML</span>
-              </div>
-            </div>
-            <div class="col-10 col-md-6 mt-4 mt-md-0">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress CSS">
-                  <span class="progress-value CSS-progress">0%</span>
-                </div>
-                <br />
-                <span class="text">CSS</span>
-              </div>
-            </div>
-                
-          </div>
-          <div class="row justify-content-evenly mt-4">
-            <div class="col-10 col-md-6">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress javascript">
-                  <span class="progress-value javascript-progress">0%</span>
-                </div>
-                <br />
-                <span class="text">JavaScript</span>
-              </div>
-            </div>
-            <div class="col-10 col-md-6 mt-4 mt-md-0">
-              <div class="progress-card ms-3  ms-md-0">
-                <div class="circular-progress reactjs">
-                  <span class="progress-value reactjs-progress">0%</span>
-                </div>
-                <br>
-                <span class="text">ReactJS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-10 col-md-5 skill-detail" data-aos="slide-left">
-          <div class="heading mt-5 mt-md-3">
-            <small>My Skills</small>
-            <h3>Beautiful & Unique Digital Experiences</h3>
-            <p class="text-muted">
-              Expert in front-end web design, UI/UX principles, and responsive design to ensure websites perform flawlessly across all devices.
-            </p>
-            <p class="text-muted">
-              With a solid foundation in front-end, I specialize in creating websites that not only look great but also function flawlessly.
-            </p>
-            <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
-              <!-- here download attribute is used for adding download functionality to button  -->
+      <section class="home section" id="home">
+        <div class="home__container container grid">
+          <div class="home__content grid">
+            <div class="home__social">
               <a
-                target="_blank" href="https://drive.google.com/file/d/1azEyrIBok1aOdgnDz_5Rb-JnBfYYcYzm/view"
-                download="DownloadCV"
-                style="text-decoration: none;color: #fff;"
-                >Download CV</a
+                href="https://www.linkedin.com/in/chirag-bhoi-90b89b1b1/"
+                target="_blank"
+                class="home__social-icon"
               >
-            </button>
+                <i class="uil uil-linkedin-alt home__icon"></i>
+              </a>
+
+              <a
+                href="https://github.com/chiragbhoi01"
+                target="_blank"
+                class="home__social-icon"
+              >
+                <i class="uil uil-github-alt home__icon"></i>
+              </a>
+            </div>
+            <div class="home__img">
+              <svg
+                class="home__blob"
+                viewBox="0 0 200 187"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <mask id="mask0" mask-type="alpha">
+                  <path
+                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                      130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                      97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                      0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
+                  />
+                </mask>
+                <g mask="url(#mask0)">
+                  <path
+                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                      165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                      129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                     -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
+                  />
+                  <image
+                    class="home__blob-img"
+                    x="-79"
+                    y="-46"
+                    xlink:href="assets/img/Pro.jpg"
+                  />
+                </g>
+              </svg>
+            </div>
+            <div class="home__data">
+              <h1 class="home__title">Hi, I'm Chirag Bhoi</h1>
+              <h3 class="home__subtitle">
+                Frontend Developer
+              </h3>
+              <p class="home__description">
+                I am a frontend developer skilled in
+                <strong>React.js, JavaScript, Tailwind CSS, and Bootstrap, </strong>creating responsive and engaging web applications.
+              </p>
+              <a href="#contact" class="button button--flex">
+                Contact me<i class="uil uil-message button__icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="home__scroll">
+            <a href="#about" class="home__scroll-button button--flex">
+              <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+              <span class="home__scroll-name">Scroll down</span>
+              <i class="uil uil-arrow-down home__scroll-arrow"></i>
+            </a>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- skill section end here -->
+      </section>
 
-    <!-- portfolio section starts here -->
-    <section class="portfolio" id="portfolio">
-      <div class="heading text-center pt-5">
-        <small>Creative Work</small>
-        <h3>Check My Portfolio</h3>
-      </div>
+      <!--======================= About========================-->
 
-      <div id="myBtnContainer" class="text-center mt-4">
-        <!-- here we will create custom attribute using data- for filtering -->
-        <button class="filter-item" data-filter="all">All</button>
-        </div>
-      <div class="portfolio-body">
-        <div class="row justify-content-evenly px-4">
-          <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
-            <div class="card">
-              <img src="images/food website sample.png" class="card-img-top" alt="..." />
-              <div class="card-body text-center">
-                <h4 class="card-title">Food Website</h4>
-                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-                <span class="badge bg-secondary badge-pill">JavaScript</span><br />
-                <a href="https://chirag-dilpunjabi.netlify.app/" target="_blank" class="link">View Demo</a>
+      <section class="about section" id="about">
+        <h2 class="section__title">About Me</h2>
+        <span class="section__subtitle">My introduction</span>
+
+        <div class="about__container container grid">
+          <img src="assets\img\about.jpg" alt="" class="about__img" />
+
+          <div class="about__data">
+            <p class="about__description">
+              I am a frontend developer proficient in React.js and JavaScript, specializing in building dynamic web applications. With expertise in Tailwind CSS and Bootstrap, I create responsive, user-friendly interfaces. I focus on clean, maintainable code and seamless user experiences. Always eager to learn and adopt new technologies to enhance my skills.
+            </p>
+
+            <div class="about__info">
+              
+
+              <div>
+                <span class="about__info-title">6+</span>
+                <span class="about__info-name"
+                  >
+                  Projects</span
+                >
+              </div>
+
+              <div>
+                <span class="about__info-title">10+</span>
+                <span class="about__info-name">Months <br />experience</span>
               </div>
             </div>
-            <div class="card">
-              <img src="images/jewelry web.png" class="card-img-top" alt="..." />
-              <div class="card-body text-center">
-                <h4 class="card-title">Jewelery Website</h4>
-                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-                <br><a href="https://shopmissgypsy.netlify.app/" target="_blank" class="link">View Demo</a>
-              </div>
-            </div>
-          </div>
-          
-    </section>
-    <!-- portfolio section ends here -->
 
-  
-
-   
-    <!-- contact section starts -->
-    <section class="contact py-5" id="contact">
-      <div class="heading text-center">
-        <small>Get in Touch</small>
-        <h3>Any Questions? Feel Free to Contact</h3>
-      </div>
-      <div class="row justify-content-evenly mt-5">
-        <div class="col-md-5 col-10 contact-details" data-aos="slide-right">
-          <div class="row justify-content-evenly">
-            <div class="col-1">
-              <i class="bi bi-geo-alt-fill"></i>
-            </div>
-            <div class="col-11">
-              <p>Udaipur , Rajasthan India</p>
-            </div>
-          </div>
-          <div class="row justify-content-evenly">
-            <div class="col-1">
-              <i class="bi bi-telephone-fill"></i>
-            </div>
-            <div class="col-11">
-              <p>+91 8875127427</p>
-            </div>
-          </div>
-          <div class="row justify-content-evenly">
-            <div class="col-1">
-              <i class="bi bi-send-fill"></i>
-            </div>
-            <div class="col-11">
-              <p>mr.chiragbhoi2003@gmail.com</p>
-            </div>
-          </div>
-          <div class="row justify-content-evenly">
-            <div class="col-1">
-              <i class="bi bi-globe-americas"></i>
-            </div>
-            <div class="col-11">
-              <p>chiragbhoimarshal.netlify.app</p>
+            <div class="about__buttons">
+              <a download="" href="https://drive.google.com/file/d/1azEyrIBok1aOdgnDz_5Rb-JnBfYYcYzm/view" class="button button--flex">
+                Download CV<i class="fas fa-download button__icon"></i>
+              </a>
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
-          <div class="contact-form">
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="Name"
-              />
+      </section>
+
+      <!--===================== SKILLS =====================-->
+
+      <section class="skills section" id="skills">
+        <h2 class="section__title">Skills</h2>
+        <span class="section__subtitle">My technical level</span>
+
+        <div class="skills__container container grid">
+          <div>
+            <!--==================== Skill 1 =================-->
+            <div class="skills__content skills__open">
+              <div class="skills__header">
+                <i class="fas fa-pencil-ruler skills__icon"></i>
+
+                <div>
+                  <h1 class="skills__title">Programming Languages</h1>
+                </div>
+
+                <i class="uil uil-angle-down skills__arrow"></i>
+              </div>
+              
+
+              <div class="skills__list grid">
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">HTML</h3>
+                  </div>
+                  
+                </div>
+                
+                  <div class="skills__data">
+                    <div class="skills__titles">
+                      <h3 class="skills__name">CSS</h3>
+                    </div>
+                    
+                  </div>
+                  <div class="skills__data">
+                    <div class="skills__titles">
+                      <h3 class="skills__name">JavaScript</h3>
+                    </div>
+                    
+                  </div>
+                  <div class="skills__data">
+                    <div class="skills__titles">
+                      <h3 class="skills__name">React</h3>
+                    </div>
+                   
+                  </div>
+                  <div class="skills__data">
+                    <div class="skills__titles">
+                      <h3 class="skills__name">Tailwind Css</h3>
+                    </div>
+                </div>
+                
+                
+              </div>
             </div>
-            <div class="mb-3">
-              <input
-                type="email"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="E-mail"
-              />
+
+        
+            <!--==================== Skill 3 =================-->
+            <div class="skills__content skills__close">
+              <div class="skills__header">
+                <i class="fas fa-swatchbook skills__icon"></i>
+                <div>
+                  <h1 class="skills__title">Technologies</h1>
+                </div>
+
+                <i class="uil uil-angle-down skills__arrow"></i>
+              </div>
+
+              <div class="skills__list grid">
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Git</h3>
+                  </div>
+                  
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">GitHub</h3>
+                  </div>
+                  
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Figma</h3>
+                  </div>
+                  
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">VS Code</h3>
+                  </div>
+                  
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Netlify</h3>
+                  </div>
+                  
+                </div>
+                
+                
+                </div>
+              </div>
             </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="Mobile No."
-              />
+          </div>
+        </div>
+      </section>
+
+    
+      
+
+      <!--=================== Portfolio ===================-->
+      <section class="portfolio section" id="portfolio">
+        <h2 class="section__title">Projects</h2>
+        <span class="section__subtitle">Most recent work</span>
+
+        <div class="portfolio__container container swiper-container">
+          <div class="swiper-wrapper">
+            <!-- ------------------------portfollio 1-------------------- -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/weather-checker.png" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">
+                  Weather-Checker
+                </h3>
+                <p class="portfolio__description">
+                  I created a Weather Checker website using HTML, CSS, and JavaScript. Users can easily check the current weather for any location. The site features a responsive design, dynamic JavaScript functionality, and integrates a weather API for real-time updates. This project showcases my skills in web development and user experience.
+                </p>
+                <a
+                  href="https://github.com/chiragbhoi01/Weather-Checker.git"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+                <a
+                  href="https://chirag-weatherchecker.netlify.app/"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  See Live
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+              </div>
             </div>
-            <div class="mb-3">
+            <!-- ------------------------portfollio 2-------------------- -->
+
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/random-password.png" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">
+                  Random Password Generator
+                </h3>
+                <p class="portfolio__description">
+                  I built a Random Password Generator using ReactJS and Tailwind CSS. This web application allows users to generate secure and random passwords with customizable length and character options. The sleek and responsive design, powered by Tailwind CSS, enhances user experience, while ReactJS effectively manages state and renders the generated passwords in real-time.
+                </p>
+                <a
+                  href="https://github.com/chiragbhoi01/Random-password-generator.git"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+                <a
+                  href="https://chirag-randompassword.netlify.app//"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  See Live
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- ------------------------portfollio 3-------------------- -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/food-web.png" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">Food website (Dil Punjabi)</h3>
+                <p class="portfolio__description">
+                  I created a simple food website with a focus on UI. It features basic animations and a login page. Users can log in using a username and password to access different recipes and save their favorites. The design is straightforward yet modern, making it easy to navigate.                </p>
+                <a
+                  href="https://github.com/chiragbhoi01/Food-Website.git"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+                <a
+                  href="https://chirag-dilpunjabi.netlify.app//"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  See Live
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+              </div>
+            </div>
+            <!-- ------------------------portfollio 4-------------------- -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/calculator.png"  class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">Calculator</h3>
+                <p class="portfolio__description">
+                  I created a simple calculator! 😊✨ With this calculator, you can do addition, subtraction, multiplication, and division. I really enjoyed working on this project because I used HTML, CSS, and JavaScript. 💻
+                </p>
+                <a
+                  href="https://github.com/chiragbhoi01/Calculator-For-Internship-Code-Samurai-.git"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+                <a
+                  href="https://github.com/chiragbhoi01/Calculator-For-Internship-Code-Samurai-.git"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  See Live
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- ------------------------portfollio 5-------------------- -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/ecommercw.jpg" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">On Progress (E-Commerce Website)</h3>
+                <p class="portfolio__description">
+                  
+                </p>
+                <a
+                  href="https://chiragbhoimarshal.netlify.app/"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+                <a
+                  href="https://chiragbhoimarshal.netlify.app/"
+                  class="button button--flex button--small portfolio__button"
+                >
+                  See Live
+                  <i class="uil uil-external-link-alt button__icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- add arrows -->
+          <div class="swiper-button-next">
+            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+          </div>
+          <div class="swiper-button-prev">
+            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+          </div>
+          <!-- add pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+
+      <!--===================== Contact Me =====================-->
+      <section class="contact section" id="contact">
+        <h2 class="section__title">Contact Me</h2>
+        <span class="section__subtitle">Get in touch</span>
+
+        <div class="contact__container container grid">
+          <div>
+            <div class="contact__information">
+              <i class="uil uil-calling contact__icon"></i>
+
+              <div>
+                <h3 class="contact__title">Contact Me</h3>
+                <span class="contact__subtitle"
+                  ><a href="tel:8875127427"></a>8875127427</span
+                >
+              </div>
+            </div>
+
+            <div class="contact__information">
+              <i class="uil uil-envelope-minus contact__icon"></i>
+
+              <div>
+                <h3 class="contact__title">Email</h3>
+                <span class="contact__subtitle"
+                  >mr.chiragbhoi2003@gmail.com</span
+                >
+              </div>
+            </div>
+
+            <div class="contact__information">
+              <i class="uil uil-map-marker contact__icon"></i>
+
+              <div>
+                <h3 class="contact__title">Location</h3>
+                <span class="contact__subtitle"
+                  >Udaipur, Rajasthan, India</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <form action="" class="contact__form grid">
+            <div class="contact__inputs grid">
+              <div class="contact__content">
+                <label for="" class="content__label">Name</label>
+                <input type="text" class="contact__input" />
+              </div>
+
+              <div class="contact__content">
+                <label for="" class="content__label">Email</label>
+                <input type="Email" class="contact__input" />
+              </div>
+            </div>
+
+            <div class="contact__content">
+              <label for="" class="content__label">Message</label>
               <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                placeholder="Message"
-                rows="5"
+                name=""
+                id=""
+                cols="0"
+                rows="7"
+                class="contact__input"
               ></textarea>
             </div>
-            <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
-              Submit
-            </button>
+
+            <div>
+              <a
+                href=" mailto: mr.chiragbhoi2003@gmail.com?subject=Testing out mailto! &body=This is only a test!"
+                class="button button--flex"
+              >
+                Send Message
+                <i class="uil uil-message button__icon"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--================== Footer ===============-->
+    <footer class="footer">
+      <div class="footer__bg">
+        <div class="footer__container container grid">
+          <div>
+            <h1 class="footer__title">Chirag</h1>
+            <span class="footer__subtitle"
+              >Frontend Developer</span
+            >
+          </div>
+
+          <ul class="footer__links">
+            
+            <li>
+              <a href="#portfolio" class="footer__link">Portfolio</a>
+            </li>
+            <li>
+              <a href="#contact" class="footer__link">Contact-Me</a>
+            </li>
+          </ul>
+
+          <div class="footer__socials">
+            <a
+              href="https://www.instagram.com/chirag.bhoi_/"
+              class="footer__social"
+              target="__blank"
+            >
+            <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://linkedin.com/chirag-bhoi-90b89b1b1"
+              target="__blank"
+              class="footer__social"
+            >
+            <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/chiragbhoi01"
+              target="__blank"
+              class="footer__social"
+            >
+            <i class="fa-brands fa-github"></i>
+            </a>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- contact section ends here -->
 
-      <!-- now we will make back to top button when user click on it it will be redirected to top page  -->
-    <button
-      type="button"
-      class="btn btn-floating btn-lg rounded-pill"
-      id="btn-back-to-top"
-    >
-      <i class="bi bi-arrow-up"></i>
-    </button>
-
-    <!-- footer section starts  -->
-    <footer class="text-center text-muted py-4">
-      <h3 class="text-white pt-4" data-aos="fade-up">Portfolio</h3>
-      <div class="link-group mt-5" data-aos="fade-up">
-        <a href="#home">Home</a>
-        <div class="vr"></div>
-        <a href="#about">About</a>
-        <div class="vr"></div>
-        <a href="#service">Service</a>
-        <div class="vr"></div>
-        <a href="#portfolio">Portfolio</a>
-        <div class="vr"></div>
-        <a href="#contact">Contact</a>
+        <p class="footer__copy">&#169; Marshal(Chirag). All right reserved</p>
       </div>
-      <div class="social-links mt-5" data-aos="fade-up">
-        <button href="" class="rounded-pill Linkedin">
-          <a href="https://www.linkedin.com/in/chirag-bhoi-90b89b1b1/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
-        </button>
-        <button href="" class="rounded-pill instagram">
-          <a href="https://www.instagram.com/chirag.bhoi_/?next=%2F" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-        </button>
-        <button href="" class="rounded-pill github">
-          <a href="https://github.com/chiragbhoi01" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-        </button>
-      </div>
-      <hr class="text-muted my-4" />
-
-      <p> &copy; Copyright 2024 Portfolio - Marshal | All Rights Reserved.</p>
     </footer>
-    <!-- footer section ends here -->
 
-      <!-- bootstrap javascript cdn link  -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
+    <!--================== SCROLL TOP ==================-->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
 
-    <!-- AOS library javascript link  -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      // initializing AOS library
-      AOS.init({
-        duration: 1000,
-        offset: 50,
-      });
-    </script>
-    <!-- custom js file linking -->
-    <script src="js/script.js"></script>
-    
+    <script type="text/javascript" src="assets/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
+    <script src="assets/script.js"></script>
   </body>
 </html>
