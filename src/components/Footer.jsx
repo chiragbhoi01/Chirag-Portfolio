@@ -24,7 +24,7 @@ function Footer() {
             <FaGithub className="text-blue-700 hover:text-blue-300" />
           </Button>
           <Button
-            href={"https://github.com/chiragbhoi01"}
+            href={"https://linkedin.com/in/chirag-bhoi-90b89b1b1/"}
             className="bg-transparent hover:bg-transparent"
           >
             <FaLinkedin className="text-blue-700 hover:text-blue-300" />
