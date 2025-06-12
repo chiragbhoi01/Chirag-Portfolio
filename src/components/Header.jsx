@@ -60,7 +60,7 @@ function Header() {
         {/* Resume Download Button */}
         <li className="p-4 list-none">
           <Button
-            href="https://drive.google.com/file/d/1xQQ7PqbME1xIfmJrRGqs9xcK-RyfoIyX/view"
+            href="https://drive.google.com/file/d/1OpT_n0Zflhf4xLZoU_x-7J6_rYPcSNhk/view"
             className="py-2 px-4 font-bold text-sm lg:text-base"
           >
             <span>Download Resume</span>
