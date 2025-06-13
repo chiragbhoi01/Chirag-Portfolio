@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Header from './components/Header'
@@ -8,10 +7,16 @@ import Skills from '../src/pages/Skills'
 import Contact from '../src/pages/Contact'
 import Home from './pages/Home';
 import Github from './pages/Github';
+
+//Mantine UI
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
+
 const App = () => {
   return (
-    <Router>
-      <Header /> {/* Add the Header component here */}
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <Router>
+      <Header />
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,6 +28,7 @@ const App = () => {
       </div>
       <Footer/>
     </Router>
+    </MantineProvider>
   );
 };
 

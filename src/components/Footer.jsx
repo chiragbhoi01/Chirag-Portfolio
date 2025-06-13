@@ -1,47 +1,53 @@
-import React from "react";
-import { AiOutlineSmallDash } from "react-icons/ai";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
-import Button from "../utils/Button";
-function Footer() {
-  // Let's say we want to display this icon 5 times
-  const iconCount = 100;
+import {
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  
+} from "@tabler/icons-react";
+import { ActionIcon, Container, Group } from "@mantine/core";
+import classes from "../styles/FooterSocial.module.css";
+import Logo from "../utils/Logo";
 
+export default function Footer() {
   return (
-    <footer>
-      <div className="flex">
-        {Array.from({ length: iconCount }).map((_, index) => (
-          <AiOutlineSmallDash key={index} className="text-2xl" />
-        ))}
-      </div>
-      <div className="flex flex-col items-center">
-        <h1 className="font-extrabold text-xl">Chirag Portfolio</h1>
-        <div className="flex text-3xl m-2 animate__animated animate__slideInUp">
-          <Button
-            href={"https://github.com/chiragbhoi01"}
-            className="bg-transparent hover:bg-transparent"
-          >
-            <FaGithub className="text-blue-700 hover:text-blue-300" />
-          </Button>
-          <Button
-            href={"https://linkedin.com/in/chirag-bhoi-90b89b1b1/"}
-            className="bg-transparent hover:bg-transparent"
-          >
-            <FaLinkedin className="text-blue-700 hover:text-blue-300" />
-          </Button>
-          <Button
-            href={"https://www.instagram.com/chirag.bhoi_/"}
-            className="bg-transparent hover:bg-transparent"
-          >
-            <FaInstagram className="text-blue-700 hover:text-blue-300" />
-          </Button>
-        </div>
-        <div>
-        <p>Copyright &#169; 2025 Marshal</p>
-        </div>
-      </div>
-    </footer>
+    <div className={classes.footer}>
+      <Container className={classes.inner}>
+        <Logo width="150" />
+        <Group
+          gap={0}
+          className={classes.links}
+          justify="flex-end"
+          wrap="nowrap"
+        >
+          <ActionIcon size="lg" color="black" variant="subtle">
+            <a
+              href="http://github.com/chiragbhoi01"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              <IconBrandGithub size={28} stroke={2} />
+            </a>
+          </ActionIcon>
+          <ActionIcon size="lg" color="black" variant="subtle">
+            <a
+              href="https://www.linkedin.com/in/chirag-bhoi-90b89b1b1/"
+              target="_blank"
+            >
+              <IconBrandLinkedin size={28} stroke={2} />
+            </a>
+          </ActionIcon>
+          <ActionIcon size="lg" color="black" variant="subtle">
+            <a
+              href="https://www.instagram.com/chirag.bhoi_/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconBrandInstagram size={28} stroke={2} />
+            </a>
+          </ActionIcon>
+        </Group>
+      </Container>
+    </div>
   );
 }
-
-export default Footer;

@@ -1,10 +1,9 @@
-import React from 'react';
-import portfolioLogo from '../assets/image/chiragLogo.png';
+import { profileLogo } from "../assets/image/image";
 
 function Logo({ width = "50px" }) {
     return (
         <div>
-            <img src={portfolioLogo} alt="Portfolio-Logo" width={width} />
+            <img src={profileLogo} alt="Portfolio-Logo" width={width} />
         </div>
     );
 }
