@@ -1,14 +1,27 @@
 import { forwardRef } from "react";
 
 const Inputs = forwardRef(
-  ({ label, type = "text", placeholder, className = "", as = "input", value, onChange, ...props }, ref) => {
+  (
+    {
+      label,
+      type = "text",
+      placeholder = "",
+      className = "",
+      as = "input",
+      id,
+      value,
+      onChange,
+      ...props
+    },
+    ref
+  ) => {
     const Component = as === "textarea" ? "textarea" : "input";
 
     return (
       <div className="mb-4">
         {label && (
           <label
-            htmlFor={label}
+            htmlFor={id}
             className="block mb-1 text-sm font-medium text-gray-700"
           >
             {label}
@@ -17,7 +30,7 @@ const Inputs = forwardRef(
         <Component
           ref={ref}
           type={type}
-          id={label} // Ensure id is unique (you can also replace this with `id={label.replace(' ', '-')}`)
+          id={id} // Use passed id for uniqueness
           placeholder={placeholder}
           value={value} // Bind value here
           onChange={onChange} // Bind onChange here
