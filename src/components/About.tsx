@@ -1,12 +1,14 @@
 import profileImg from "../assets/img/profileImg.webp";
+import ComponentWithDarkBackground from "./ComponentWithDarkBackground";
 
 function About() {
   return (
-    <section
+    <ComponentWithDarkBackground>
+      <section
       id="about"
       role="region"
       aria-label="About Chirag Bhoi"
-      className="bg-gradient-to-br from-[#9d174d] via-[#d946ef] to-[#f0abfc] flex flex-col md:flex-row mx-2 my-1 rounded-2xl min-h-screen max-h-95 overflow-hidden p-10 text-white"
+      className="flex flex-col md:flex-row mx-2 my-1 rounded-2xl min-h-screen max-h-95 overflow-hidden p-10 "
     >
       <div className="flex flex-col items-center w-full mt-5">
         <h1 className="text-6xl md:text-8xl font-bold mb-8 text-center">
@@ -35,6 +37,7 @@ function About() {
         </div>
       </div>
     </section>
+    </ComponentWithDarkBackground>
   );
 }
 

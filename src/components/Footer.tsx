@@ -28,7 +28,7 @@ function Footer() {
     <footer
       role="contentinfo"
       aria-label="Footer for Chirag Bhoi's Portfolio"
-      className="bg-gradient-to-r from-[#0e7490] via-[#3b82f6] to-[#4f46e5] text-white py-8 px-4 mt-2 rounded-t-2xl"
+      className="bg-gradient-to-r from-[#0f172a]  to-[#334155] text-white py-8 px-4 mt-2 rounded-t-2xl"
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Logo */}

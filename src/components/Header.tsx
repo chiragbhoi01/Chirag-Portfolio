@@ -7,7 +7,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-[#0e7490] via-[#3b82f6] to-[#4f46e5] h-16 rounded-2xl m-2 sticky top-2 z-10 bg-transparent text-indigo-50">
+    <header className="bg-gradient-to-r from-[#0f172a]  to-[#334155] h-16 rounded-2xl m-2 sticky top-2 z-10 bg-transparent text-indigo-50">
       <div className="flex justify-between items-center h-full px-4"> 
         <div>
           <a

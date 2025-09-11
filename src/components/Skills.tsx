@@ -1,5 +1,6 @@
 import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa";
 import { SiTypescript, SiTailwindcss } from "react-icons/si";
+import ComponentWithDarkBackground from "./ComponentWithDarkBackground";
 
 function Skills() {
   const skills = [
@@ -12,11 +13,12 @@ function Skills() {
   ];
 
   return (
-    <section
+   <ComponentWithDarkBackground>
+     <section
       id="skills"
       role="region"
       aria-label="Chirag Bhoi's Skills"
-      className="bg-gradient-to-br from-[#9d174d] via-[#d946ef] to-[#f0abfc] flex flex-col mx-2 my-1 rounded-2xl min-h-screen max-h-screen overflow-hidden p-10 text-white"
+      className=" flex flex-col mx-2 my-1 rounded-2xl min-h-screen max-h-screen overflow-hidden p-10 "
     >
       <div className="flex flex-col items-center w-full">
         <h1 className="text-6xl md:text-8xl font-bold my-10 text-center">
@@ -37,7 +39,9 @@ function Skills() {
         </div>
       </div>
     </section>
+   </ComponentWithDarkBackground>
   );
 }
 
 export default Skills;
+
