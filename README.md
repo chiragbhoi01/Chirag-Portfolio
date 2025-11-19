@@ -1,93 +1,84 @@
-# Chirag Bhoi Portfolio
+# Hi there, I'm Chirag Bhoi! 👋
 
-Welcome to my personal portfolio, showcasing my skills as a Frontend Developer from Udaipur, Rajasthan. Built with React.js, TypeScript, and Tailwind CSS, this project highlights my ability to create responsive, accessible, and visually appealing web applications.
+<div align="center">
+  
+  **Full-Stack Driven Frontend Developer** *Building elegant, performant interfaces & scalable backend architectures.*
 
-## Project Overview
+  [<img src="https://img.shields.io/badge/Portfolio-Live_Demo-2ea44f?style=for-the-badge&logo=vercel" />](https://chiragbhoimarshal.netlify.app/)
+  [<img src="https://img.shields.io/badge/Resume-View_PDF-FF5500?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" />](https://drive.google.com/drive/folders/1YvZahpANrGn1i0R-rQXTohAfPzSf2CJN)
+  [<img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/chirag-bhoi-90b89b1b1)
+  [<img src="https://img.shields.io/badge/Email-Contact_Me-D14836?style=for-the-badge&logo=gmail&logoColor=white" />](mailto:mr.chiragbhoi2003@gmail.com)
 
-This portfolio demonstrates my expertise in frontend development, featuring a clean design with gradient backgrounds, smooth hover effects, and accessible navigation. It includes sections for Home, About, Skills, Projects, Contact, and Footer, with a cohesive and modern UI.
+</div>
 
-## Completed Work
+---
 
-- **Header**:
-  - Sticky header with a gradient background (`from-[#0e7490] via-[#3b82f6] to-[#4f46e5]`).
-  - Logo, navigation links (About, Skills, Project, Contact), and a resume button linking to a Google Drive file.
-  - Hamburger menu for small devices with a dropdown navigation.
-  - Accessibility with `aria-label` for navigation and resume link.
-- **Home Section**:
-  - Hero section with a vibrant gradient (`from-[#9d174d] via-[#d946ef] to-[#f0abfc]`).
-  - Introduction with name, title, and skills (React.js, TypeScript, Tailwind CSS).
-  - Social media links (GitHub, X, LinkedIn) with `aria-label`.
-  - Hero image (`HeroSlider.jpg`) with lazy loading.
-- **About Section**:
-  - About Me section with matching gradient and responsive layout.
-  - Introduction text and placeholder image (`about.jpg`).
-  - Accessibility with `role="region"` and `aria-label="About Chirag Bhoi"`.
-- **Skills Section**:
-  - Skills section with a matching gradient and responsive grid layout.
-  - Displays skills (HTML, CSS, JavaScript, React, TypeScript, Tailwind CSS) with icons from `react-icons`.
-  - Card-based design with hover effects and semi-transparent backgrounds.
-  - Accessibility with `aria-label="Chirag Bhoi's Skills"`.
-- **Projects Section**:
-  - Projects section with a matching gradient and responsive grid layout.
-  - Showcases four projects: Miss Gypsy (e-commerce), Personal Portfolio SPA, Weather Checker, and To-Do App.
-  - Each project includes a screenshot, description, tech stack, highlights, and links (Live Demo, GitHub).
-  - Accessibility with `aria-label` and `role="region"`.
-- **Contact Section**:
-  - Contact section with a matching gradient and responsive layout.
-  - Features a form (Name, Email, Message) with client-side validation (required fields, email format, message length).
-  - Uses a reusable `Input` component for form fields, supporting `<input>` and `<textarea>`.
-  - Accessibility with `role="region"`, `aria-label="Contact Chirag Bhoi"`, `aria-required`, and `aria-live`.
-- **Footer Section**:
-  - Simple footer with a matching gradient (`from-[#0e7490] via-[#3b82f6] to-[#4f46e5]`).
-  - Includes Marshalcraft logo, social media links (GitHub, X, LinkedIn), and a copyright notice.
-  - Accessibility with `role="contentinfo"` and `aria-label`.
+### 👨‍💻 About Me
 
-## Future Features
+I am a passionate **Frontend Developer** based in **Udaipur, Rajasthan**, currently transitioning into Full-Stack Development. I specialize in creating responsive, accessible, and high-performance web applications using the **MERN Stack (MongoDB, Express, React, Node)** and **Next.js**.
 
-- **React Router**: Implement `react-router-dom` for smooth page navigation.
-- **Animations**: Add Framer Motion for section transitions.
-- **SEO Enhancements**: Include dynamic Open Graph tags.
-- **Resume Accessibility**: Host resume on a public platform (e.g., GitHub).
-- **Favicon**: Replace `vite.svg` with `logo.png`.
-- **Dark Mode**: Add a toggle for dark/light mode.
-- **Analytics**: Integrate Google Analytics.
+* 🔭 I’m currently working on **Full-stack Next.js applications.**
+* 🌱 I’m currently learning **Advanced Backend Architecture & System Design.**
+* 💼 **Current Role:** Senior Research Analyst at Arcgate Technologies.
+* 🎓 **Education:** Pursuing MCA at Manipal University Jaipur.
 
-## Installation
+---
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/chiragbhoi01/Chirag-Portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Chirag-Portfolio
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
-5. Open `http://localhost:5173` in your browser.
+### 🛠️ Technical Skills
 
-## Dependencies
+| Category | Technologies |
+| :--- | :--- |
+| **Frontend Core** | ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=next.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) |
+| **Backend & DB** | ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat-square&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![Firebase](https://img.shields.io/badge/-Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black) |
+| **Styling & UX** | ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) ![Shadcn/ui](https://img.shields.io/badge/-Shadcn/ui-000000?style=flat-square&logo=shadcnui&logoColor=white) ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white) |
+| **Tools** | ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white) ![Postman](https://img.shields.io/badge/-Postman-FF6C37?style=flat-square&logo=postman&logoColor=white) ![Vercel](https://img.shields.io/badge/-Vercel-000000?style=flat-square&logo=vercel&logoColor=white) ![Redux](https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux&logoColor=white) |
 
-- **React.js**: Frontend framework
-- **TypeScript**: Type safety
-- **Tailwind CSS**: Styling
-- **react-icons**: Social media, skill, and footer icons
-- **Vite**: Build tool
+---
 
-## Notes
+### 🚀 Featured Projects
 
-- **Image Assets**: Place `logo.png`, `HeroSlider.jpg`, `about.jpg`, `miss-gypsy.jpg`, `portfolio.jpg`, `weather-checker.jpg`, and `todo-app.jpg` in `public/assets/img/` to avoid Vite import issues.
-- **Resume Link**: Update Google Drive sharing to "Anyone with the link".
+| Project | Description | Tech Stack | Links |
+| :--- | :--- | :--- | :--- |
+| **RAJMAHAL UDAIPUR** | **Full-Stack E-commerce** rental platform with a secure Admin CMS, JWT auth, and role-based access. | Next.js 14, Node.js, MongoDB, TypeScript | [Live Demo](https://chirag-rajmahaludaipur.vercel.app) • [Code](https://github.com/fullstackproject) |
+| **Miss Gypsy** | **Jewelry E-commerce** platform with dynamic filtering and 95% Lighthouse performance score. | React, Tailwind, Firebase, Vite | [Live Demo](https://chirag-shopmissgypsy.vercel.app) • [Code](https://github.com/chiragbhoi01/Ecommerce-jewellery-website) |
+| **Personal Portfolio** | **SPA Portfolio** featuring real-time GitHub stats, dynamic theming, and Framer Motion animations. | Next.js, Shadcn UI, Github API | [Live Demo](https://chiragbhoimarshal.netlify.app/) • [Code](https://github.com/chiragbhoi01/Chirag-Portfolio) |
+| **To-Do App** | **Task Management** app with advanced sorting (alphabetical, time, date). | React, TypeScript, Tailwind | [Live Demo](https://chirag-todoapp.vercel.app/) • [Code](https://github.com/chiragbhoi01/todo-app) |
 
-## Contact
+---
 
-Reach out via:
-- GitHub: [chiragbhoi01](https://github.com/chiragbhoi01)
-- X: [@Mr_chirag_bhoi](https://x.com/Mr_chirag_bhoi)
-- LinkedIn: [Chirag Bhoi](https://www.linkedin.com/in/chirag-bhoi-90b89b1b1)
+### 💼 Experience
+
+**Senior Research Analyst** @ [Arcgate Technologies](https://www.arcgate.com/)  
+*Feb 2024 – Present | Udaipur, India* * Applied analytical skills to process and analyze large datasets with 99% accuracy.
+* Developed automation scripts, improving data processing efficiency by 20%.
+
+**Frontend Developer Intern** @ [IBM SkillBuild CSRBOX](https://www.csrbox.org/)  
+*Jul 2024 – Aug 2024 | Remote* * Built responsive, accessible web components using React.js & Tailwind.
+* Optimized UI performance, reducing load times by 15% via lazy loading.
+
+---
+
+### 🎓 Education
+
+* **Master of Computer Applications (MCA)** *Manipal University Jaipur (2024 – 2026)*
+* **Bachelor of Science (B.Sc.)** *Janardan Rai Nagar Rajasthan Vidyapeeth (2020 – 2023)*
+
+---
+
+### 📊 GitHub Stats
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=chiragbhoi01&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Chirag's GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=chiragbhoi01&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Top Languages" />
+</div>
+
+---
+
+<div align="center">
+  
+  **Let's Connect!** [<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/chirag-bhoi-90b89b1b1)
+  [<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />](https://github.com/chiragbhoi01)
+  [<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />](mailto:mr.chiragbhoi2003@gmail.com)
+
+  *Designed with ❤️ by Chirag Bhoi*
+</div>
