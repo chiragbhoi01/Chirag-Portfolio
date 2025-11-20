@@ -8,7 +8,7 @@ export const RESUME_DATA = {
         location: "Udaipur, Rajasthan, India",
         email: "mr.chiragbhoi2003@gmail.com",
         github: "https://github.com/chiragbhoi01",
-        resumeLink: "https://drive.google.com/drive/folders/1YvZahpANrGn1i0R-rQXTohAfPzSf2CJN",
+        resumeLink: "https://drive.google.com/file/d/1gA11cq86z5Mms0PyGe0up6nNZL59mx2L/view?usp=drive_link",
         linkedin: "https://www.linkedin.com/in/chirag-bhoi-90b89b1b1",
         avatarUrl: "/assets/profile.jpg",
         phone: "(+91) 7427837782"
