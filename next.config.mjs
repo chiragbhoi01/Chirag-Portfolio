@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // <--- Forces Next.js to build static HTML files
+  output: 'export',
   images: {
-    unoptimized: true, // <--- Required for static export
+    unoptimized: true,
   },
-  // This ensures 404s work correctly on Netlify
+
   trailingSlash: true,
 };
 

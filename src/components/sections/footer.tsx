@@ -44,7 +44,7 @@ export function Footer() {
                 </div>
 
                 <div className="flex items-end justify-center md:justify-end text-xs text-zinc-600 font-mono">
-                    <p>© {new Date().getFullYear()} {RESUME_DATA.personal.name}. Built with Next.js & Tailwind CSS.</p>
+                    <p>© {new Date().getFullYear()} {RESUME_DATA.personal.name}. Powered By Marshal.</p>
                 </div>
             </div>
         </section>
