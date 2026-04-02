@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
-
-// 1. Define your base URL (Change this to your actual Vercel domain later)
-const baseUrl = "https://chirag-portfolio.vercel.app";
+const baseUrl = "https://chiragbhoimarshal.netlify.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -14,31 +10,60 @@ export const metadata: Metadata = {
     google: "0pDVmp2iowfzrkWpE3XlQLGL2iKslhqcrKBU2IvEJGI",
   },
   title: {
-    default: "Chirag Bhoi | Frontend Developer",
+    default: "Chirag Bhoi | Full Stack Developer",
     template: "%s | Chirag Bhoi",
   },
-  description: "Frontend Developer specializing in React, Next.js, and TypeScript. Building accessible and performant web applications.",
-  keywords: ["Frontend Developer", "React", "Next.js", "TypeScript", "Tailwind CSS", "Portfolio", "Chirag Bhoi"],
-  authors: [{ name: "Chirag Bhoi" }],
+  description:
+    "Full Stack Developer specializing in Next.js, Node.js, and MongoDB. Building production-grade web applications — e-commerce platforms, SaaS dashboards, and scalable APIs.",
+  keywords: [
+    "Full Stack Developer",
+    "Full Stack Developer Portfolio",
+    "Next.js Developer India",
+    "MERN Stack Projects",
+    "Node.js Developer",
+    "React Developer",
+    "TypeScript Developer",
+    "Chirag Bhoi",
+    "Udaipur Developer",
+  ],
+  authors: [{ name: "Chirag Bhoi", url: baseUrl }],
   creator: "Chirag Bhoi",
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: baseUrl,
-    title: "Chirag Bhoi | Frontend Developer",
-    description: "Building elegant, performant interfaces with modern web technologies.",
+    title: "Chirag Bhoi | Full Stack Developer",
+    description:
+      "Full Stack Developer building production-grade web applications with Next.js, Node.js, and MongoDB.",
     siteName: "Chirag Bhoi Portfolio",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Chirag Bhoi — Full Stack Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chirag Bhoi | Frontend Developer",
-    description: "Building elegant, performant interfaces with modern web technologies.",
+    title: "Chirag Bhoi | Full Stack Developer",
+    description:
+      "Full Stack Developer building production-grade web apps with Next.js, Node.js, and MongoDB.",
     creator: "@Mr_chirag_bhoi",
+    images: ["/opengraph-image.png"],
   },
   icons: {
     icon: "/favicon.ico",
   },
-
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 };
 
 export default function RootLayout({
@@ -48,7 +73,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-background text-foreground antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://cloud.appwrite.io" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+      </head>
+      <body className="font-sans bg-background text-foreground antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

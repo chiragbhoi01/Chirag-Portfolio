@@ -17,7 +17,7 @@ function isAppwriteConfigured(): boolean {
 
 /** Convert static data.ts projects into the Project shape for fallback */
 function staticProjectsAsFallback(): Project[] {
-  return RESUME_DATA.featuredProjects.map((p, i) => ({
+  return RESUME_DATA.allProjects.map((p, i) => ({
     $id: String(i),
     title: p.title,
     slug: p.title
@@ -25,14 +25,14 @@ function staticProjectsAsFallback(): Project[] {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, ""),
     description: p.description,
-    content: p.highlights,
+    content: p.metrics,
     techStack: p.tech,
-    features: [],
-    category: "other" as const,
+    features: p.tags,
+    category: p.category,
     githubUrl: p.githubLink,
     liveUrl: p.demoLink,
-    featured: true,
-    status: "production" as const,
+    featured: p.featured,
+    status: p.status,
     createdAt: new Date().toISOString(),
   }));
 }
