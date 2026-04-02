@@ -75,7 +75,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://cloud.appwrite.io" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
       </head>
       <body className="font-sans bg-background text-foreground antialiased">
         <ThemeProvider

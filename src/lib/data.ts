@@ -3,9 +3,10 @@ export const RESUME_DATA = {
         name: "Chirag Bhoi",
         initials: "CB",
         role: "Full Stack Developer",
-        headline: "Building production-grade web applications with Next.js, Node.js, and MongoDB.",
+        // Stronger sub-headline: specific positioning over generic title
+        headline: "Backend-focused Full Stack Developer building production-grade SaaS & API-driven systems.",
         summary:
-            "Full Stack Developer specializing in scalable web systems — from RESTful APIs and RBAC authentication layers to high-performance React frontends. I ship production-ready code, not just demos.",
+            "Full Stack Developer specializing in scalable web systems — from RESTful APIs and RBAC authentication layers to high-performance React frontends. I ship production-ready code that handles real users and real edge cases.",
         location: "Udaipur, Rajasthan, India",
         email: "mr.chiragbhoi2003@gmail.com",
         github: "https://github.com/chiragbhoi01",
@@ -14,12 +15,12 @@ export const RESUME_DATA = {
         avatarUrl: "/assets/profile.jpg",
         phone: "(+91) 7427837782"
     },
-    // Credibility stats shown in hero — scannable proof points
+    // Credibility stats bar — scannable proof points shown in hero
     stats: [
-        { label: "Production Apps", value: "2+" },
+        { label: "Production Apps", value: "4+" },
         { label: "Lighthouse Score", value: "95%" },
         { label: "IBM Intern", value: "✓" },
-        { label: "MCA", value: "Manipal" },
+        { label: "Public Repos", value: "10+" },
     ],
     technicalSkills: [
         {
@@ -65,13 +66,13 @@ export const RESUME_DATA = {
             ]
         }
     ],
-    // Top 2 projects shown on homepage — production-grade, impact-focused only
+    // Top 2 projects on homepage — production-grade, most impressive only
     featuredProjects: [
         {
             title: "Rajmahal Udaipur",
             subtitle: "E-commerce Rental Platform with Admin CMS",
             description:
-                "Full-stack rental e-commerce platform for a local Udaipur business — complete with a secure admin dashboard, role-based access control, and end-to-end order management. Handles real customer transactions in production.",
+                "Full-stack rental e-commerce platform for a local Udaipur business. Built a secure admin dashboard with JWT-based authentication, role-based access control, and end-to-end order management. Handles real customer transactions in production.",
             tech: ["Next.js 14", "Node.js", "Express.js", "MongoDB", "TypeScript", "JWT"],
             tags: ["Production-ready", "RBAC", "Live System", "MERN Stack"],
             metrics: "JWT auth + RBAC · Full MERN stack · Live with real users",
@@ -79,30 +80,30 @@ export const RESUME_DATA = {
             status: "production" as const,
             featured: true,
             demoLink: "https://chirag-rajmahaludaipur.vercel.app",
-            githubLink: "https://github.com/fullstackproject"
+            githubLink: "https://github.com/chiragbhoi01/luxora"
         },
         {
-            title: "Miss Gypsy",
-            subtitle: "Jewelry E-commerce Store",
+            title: "EcoGuard LakeCity",
+            subtitle: "AI-Powered Environmental SaaS Platform",
             description:
-                "Production jewelry e-commerce platform with dynamic product filtering, real-time Firebase inventory, and a mobile-first UI. Scored 95% on Google Lighthouse — performance built-in, not bolted on.",
-            tech: ["React.js", "Tailwind CSS", "Firebase", "Vite"],
-            tags: ["95% Lighthouse", "Production-ready", "Real-time Data"],
-            metrics: "95% Lighthouse score · Real-time Firebase · Live store",
-            category: "ecommerce" as const,
-            status: "production" as const,
+                "AI-driven SaaS platform that automates waste classification and optimizes municipal collection routing using real-time sensor data. Built for Udaipur's lake conservation initiative — solving an actual civic problem with production architecture.",
+            tech: ["Next.js 15", "OpenAI API", "MongoDB", "WebSockets", "Node.js"],
+            tags: ["AI Integration", "Real-time Data", "SaaS", "Civic Tech"],
+            metrics: "AI classification · Real-time pipelines · SaaS multi-tenant",
+            category: "ai" as const,
+            status: "building" as const,
             featured: true,
-            demoLink: "https://chirag-shopmissgypsy.vercel.app",
-            githubLink: "https://github.com/chiragbhoi01/Ecommerce-jewellery-website"
+            demoLink: "https://github.com/chiragbhoi01/ecoguard-lakecity",
+            githubLink: "https://github.com/chiragbhoi01/ecoguard-lakecity"
         },
     ],
-    // All projects shown on /projects page
+    // All projects on /projects page
     allProjects: [
         {
             title: "Rajmahal Udaipur",
             subtitle: "E-commerce Rental Platform with Admin CMS",
             description:
-                "Full-stack rental e-commerce platform for a local Udaipur business — complete with a secure admin dashboard, role-based access control, and end-to-end order management. Handles real customer transactions in production.",
+                "Full-stack rental e-commerce platform for a local Udaipur business. Built a secure admin dashboard with JWT-based authentication, role-based access control, and end-to-end order management. Handles real customer transactions in production.",
             tech: ["Next.js 14", "Node.js", "Express.js", "MongoDB", "TypeScript", "JWT"],
             tags: ["Production-ready", "RBAC", "Live System", "MERN Stack"],
             metrics: "JWT auth + RBAC · Full MERN stack · Live with real users",
@@ -110,27 +111,69 @@ export const RESUME_DATA = {
             status: "production" as const,
             featured: true,
             demoLink: "https://chirag-rajmahaludaipur.vercel.app",
-            githubLink: "https://github.com/fullstackproject"
+            githubLink: "https://github.com/chiragbhoi01/luxora"
+        },
+        {
+            title: "EcoGuard LakeCity",
+            subtitle: "AI-Powered Environmental SaaS Platform",
+            description:
+                "AI-driven SaaS platform that automates waste classification and optimizes municipal collection routing using real-time sensor data. Built for Udaipur's lake conservation initiative — solving an actual civic problem with production architecture.",
+            tech: ["Next.js 15", "OpenAI API", "MongoDB", "WebSockets", "Node.js"],
+            tags: ["AI Integration", "Real-time Data", "SaaS", "Civic Tech"],
+            metrics: "AI classification · Real-time pipelines · SaaS multi-tenant",
+            category: "ai" as const,
+            status: "building" as const,
+            featured: true,
+            demoLink: "https://github.com/chiragbhoi01/ecoguard-lakecity",
+            githubLink: "https://github.com/chiragbhoi01/ecoguard-lakecity"
         },
         {
             title: "Miss Gypsy",
             subtitle: "Jewelry E-commerce Store",
             description:
-                "Production jewelry e-commerce platform with dynamic product filtering, real-time Firebase inventory, and a mobile-first UI. Scored 95% on Google Lighthouse — performance built-in, not bolted on.",
+                "Production jewelry e-commerce platform with dynamic product filtering, real-time Firebase inventory, and a mobile-first UI. Scored 95% on Google Lighthouse — performance built-in from the start, not optimized after.",
             tech: ["React.js", "Tailwind CSS", "Firebase", "Vite"],
             tags: ["95% Lighthouse", "Production-ready", "Real-time Data"],
             metrics: "95% Lighthouse score · Real-time Firebase · Live store",
             category: "ecommerce" as const,
             status: "production" as const,
-            featured: true,
+            featured: false,
             demoLink: "https://chirag-shopmissgypsy.vercel.app",
             githubLink: "https://github.com/chiragbhoi01/Ecommerce-jewellery-website"
         },
         {
-            title: "Developer Portfolio",
-            subtitle: "Database-driven portfolio with SEO and automation",
+            title: "Marshal Tracker",
+            subtitle: "Personal Productivity & Activity Tracker",
             description:
-                "This portfolio itself — built as a production system with Appwrite database, dynamic project pages, JSON-LD structured data, ISR, and a Node.js script that seeds projects from README files.",
+                "Full-stack productivity tracker with activity logging, data visualization, and exportable reports. Built around a clean REST API design — authentication, CRUD operations, and dashboard analytics in one system.",
+            tech: ["React.js", "Node.js", "MongoDB", "Chart.js", "Express.js"],
+            tags: ["REST API Design", "Data Visualization", "Full Stack"],
+            metrics: "REST API · Activity dashboard · Export reports",
+            category: "saas" as const,
+            status: "production" as const,
+            featured: false,
+            demoLink: "https://github.com/chiragbhoi01/marshal-tracker",
+            githubLink: "https://github.com/chiragbhoi01/marshal-tracker"
+        },
+        {
+            title: "Visit Vagad",
+            subtitle: "Tourism Guide Platform for Vagad Region",
+            description:
+                "Tourism discovery platform for the Vagad region of Rajasthan — featuring curated place listings, route planning, and local recommendations. Demonstrates location-based data architecture and content management.",
+            tech: ["Next.js", "Tailwind CSS", "MongoDB", "TypeScript"],
+            tags: ["Location-based", "Content Platform", "SSG"],
+            metrics: "Static generation · Content CMS · SEO-optimized",
+            category: "other" as const,
+            status: "production" as const,
+            featured: false,
+            demoLink: "https://github.com/chiragbhoi01/visit-vagad",
+            githubLink: "https://github.com/chiragbhoi01/visit-vagad"
+        },
+        {
+            title: "Developer Portfolio",
+            subtitle: "Database-driven portfolio with automation & SEO",
+            description:
+                "This portfolio itself — built as a production system with Appwrite database, dynamic project pages, JSON-LD structured data, ISR, and a CLI script that seeds projects from README files.",
             tech: ["Next.js 15", "Appwrite", "TypeScript", "Framer Motion", "Tailwind CSS"],
             tags: ["ISR", "SEO-optimized", "JSON-LD", "Automation"],
             metrics: "Dynamic routes · Appwrite DB · < 1s load",
@@ -140,27 +183,44 @@ export const RESUME_DATA = {
             demoLink: "https://chiragbhoimarshal.netlify.app/",
             githubLink: "https://github.com/chiragbhoi01/Chirag-Portfolio"
         },
-        {
-            title: "Task Manager",
-            subtitle: "React + TypeScript task management app",
-            description:
-                "Focused exercise in React patterns and TypeScript — features multi-axis sorting (alphabetical, date, time), local persistence, and clean component architecture.",
-            tech: ["React.js", "TypeScript", "Tailwind CSS"],
-            tags: ["TypeScript", "React patterns"],
-            metrics: "Multi-sort · Local storage · Accessible UI",
-            category: "other" as const,
-            status: "production" as const,
-            featured: false,
-            demoLink: "https://chirag-todoapp.vercel.app/",
-            githubLink: "https://github.com/chiragbhoi01/todo-app"
-        }
     ],
+    // Currently building — problem-focused, not just feature list
     currentlyBuilding: {
-        title: "AI-Powered SaaS Dashboard",
-        description: "A multi-tenant SaaS analytics dashboard with AI-generated insights, real-time data pipelines, and RBAC — targeting production launch.",
-        tech: ["Next.js 15", "OpenAI API", "MongoDB", "WebSockets"],
+        title: "EcoGuard LakeCity",
+        subtitle: "AI-Powered Waste Management SaaS",
+        description:
+            "Building an AI-powered SaaS to automate waste classification and optimize municipal collection routing using real-time sensor data — targeting Udaipur's lake preservation initiative. The problem: manual waste tracking is slow, error-prone, and doesn't scale.",
+        tech: ["Next.js 15", "OpenAI API", "MongoDB", "WebSockets", "Node.js"],
+        githubLink: "https://github.com/chiragbhoi01/ecoguard-lakecity",
         startedAt: "Mar 2026",
     },
+    // "How I Build Systems" — system design thinking section
+    systemThinking: [
+        {
+            title: "API-First Backend Design",
+            icon: "Server",
+            description:
+                "I design APIs before building UIs. Clean contracts, typed request/response shapes, and consistent error formats — so frontends and third-party consumers can rely on them."
+        },
+        {
+            title: "Scalable Architecture",
+            icon: "GitBranch",
+            description:
+                "Modular service layers, separation of concerns, and database indexing decisions made at design time — not after performance problems surface in production."
+        },
+        {
+            title: "Security by Default",
+            icon: "Shield",
+            description:
+                "JWT authentication, role-based access control, input validation, and rate limiting are first-class features — not security theatre added at the end."
+        },
+        {
+            title: "Performance is a Constraint",
+            icon: "Zap",
+            description:
+                "ISR, code splitting, query optimization, and Lighthouse scores are engineering requirements I track — not nice-to-haves left for DevOps to handle."
+        }
+    ],
     philosophy: [
         {
             principle: "Build for production, not portfolios",
@@ -172,7 +232,7 @@ export const RESUME_DATA = {
         },
         {
             principle: "Backend thinking drives frontend decisions",
-            detail: "Understanding APIs, data models, and system constraints makes me a better frontend engineer. I design UIs around the data, not the other way around."
+            detail: "Understanding APIs, data models, and system constraints makes me a better full stack engineer. I design UIs around the data, not the other way around."
         }
     ],
     targetRoles: [
@@ -180,6 +240,10 @@ export const RESUME_DATA = {
         "Backend Engineer (Node.js / API)",
         "Frontend Engineer (Next.js / React)",
     ],
+    // CTA copy shown in footer — aligned to target roles
+    ctaHeadline: "Looking for a Full Stack or Backend role",
+    ctaDescription:
+        "I'm actively looking for roles where I can build scalable systems, design clean APIs, and contribute to production applications. Open to full-time and contract work.",
     education: [
         {
             degree: "Master of Computer Applications (MCA)",

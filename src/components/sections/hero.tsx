@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Github, Mail, Download, ArrowRight } from "lucide-react";
 import { RESUME_DATA } from "@/lib/data";
 import { motion } from "framer-motion";
-
 import type { Easing } from "framer-motion";
 
 const EASE_OUT: Easing = "easeOut";
@@ -19,8 +18,8 @@ const fadeUp = (delay: number) => ({
 
 export function Hero() {
   return (
-    <section className="space-y-8 pt-4">
-      {/* Availability badge */}
+    <section className="space-y-7 pt-4">
+      {/* Status badge */}
       <motion.div {...fadeUp(0)}>
         <Badge
           variant="outline"
@@ -32,33 +31,38 @@ export function Hero() {
         </Badge>
       </motion.div>
 
-      {/* Primary headline */}
+      {/* Name */}
       <motion.h1
         {...fadeUp(0.08)}
         className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
       >
         {RESUME_DATA.personal.name}
-        <span className="block text-muted-foreground font-normal mt-1 text-2xl md:text-3xl tracking-normal">
-          {RESUME_DATA.personal.role}
-        </span>
       </motion.h1>
 
-      {/* Value proposition — one strong sentence */}
+      {/* Specific positioning — what I build, not just what I am */}
       <motion.p
-        {...fadeUp(0.16)}
-        className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl"
+        {...fadeUp(0.14)}
+        className="text-xl md:text-2xl font-medium text-muted-foreground leading-snug max-w-2xl"
       >
         {RESUME_DATA.personal.headline}
       </motion.p>
 
-      {/* Credibility stats bar — scannable proof in 3 seconds */}
+      {/* One-line proof */}
+      <motion.p
+        {...fadeUp(0.20)}
+        className="text-sm text-muted-foreground/70 leading-relaxed max-w-xl"
+      >
+        {RESUME_DATA.personal.summary}
+      </motion.p>
+
+      {/* Credibility stats — scannable in 3 seconds */}
       <motion.div
-        {...fadeUp(0.22)}
-        className="flex flex-wrap gap-x-6 gap-y-2"
+        {...fadeUp(0.26)}
+        className="flex flex-wrap gap-x-6 gap-y-2 py-1"
       >
         {RESUME_DATA.stats.map((stat) => (
           <div key={stat.label} className="flex items-center gap-1.5">
-            <span className="text-[#2dd4bf] font-bold text-sm">{stat.value}</span>
+            <span className="text-[#2dd4bf] font-bold text-sm tabular-nums">{stat.value}</span>
             <span className="text-muted-foreground text-xs">{stat.label}</span>
           </div>
         ))}
@@ -66,8 +70,8 @@ export function Hero() {
 
       {/* CTAs */}
       <motion.div
-        {...fadeUp(0.28)}
-        className="flex flex-wrap items-center gap-3 pt-2"
+        {...fadeUp(0.32)}
+        className="flex flex-wrap items-center gap-3 pt-1"
       >
         <Button
           size="lg"
@@ -99,10 +103,7 @@ export function Hero() {
           className="h-11 px-4 text-muted-foreground hover:text-foreground"
           asChild
         >
-          <a
-            href={`mailto:${RESUME_DATA.personal.email}`}
-            aria-label="Send email"
-          >
+          <a href={`mailto:${RESUME_DATA.personal.email}`} aria-label="Send email">
             <Mail className="mr-2 h-4 w-4" /> Contact
           </a>
         </Button>

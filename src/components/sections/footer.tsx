@@ -1,51 +1,72 @@
-import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Download } from "lucide-react";
 import { RESUME_DATA } from "@/lib/data";
 
 export function Footer() {
     return (
-        <section className="border-t border-border pt-16 pb-8">
-            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 px-6">
+        <section className="space-y-0">
+            {/* Strong CTA block */}
+            <div className="rounded-xl border border-[#2dd4bf]/20 bg-[#2dd4bf]/5 p-8 mb-12 space-y-5">
                 <div>
-                    <h2 className="text-3xl font-bold mb-4">Let's Connect</h2>
-                    <p className="text-muted-foreground mb-6">
-                        Currently looking for new opportunities in Full Stack Development.
+                    <p className="text-[#2dd4bf] text-xs font-semibold uppercase tracking-widest mb-2">
+                        Available Now
                     </p>
-                    <div className="space-y-3 text-sm text-zinc-400">
-                        <div className="flex items-center gap-3">
-                            <Mail className="w-4 h-4 text-[#2dd4bf]" /> {RESUME_DATA.personal.email}
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <Phone className="w-4 h-4 text-[#2dd4bf]" /> {RESUME_DATA.personal.phone}
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <MapPin className="w-4 h-4 text-[#2dd4bf]" /> {RESUME_DATA.personal.location}
-                        </div>
-                    </div>
-                    <div className="flex gap-4 pt-6">
-                        <a
-                            href={RESUME_DATA.personal.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="GitHub"
-                            className="flex items-center justify-center w-9 h-9 rounded-full border border-zinc-700 text-zinc-300 hover:text-[#2dd4bf]"
-                        >
-                            <Github className="w-5 h-5" />
-                        </a>
-                        <a
-                            href={RESUME_DATA.personal.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                            className="flex items-center justify-center w-9 h-9 rounded-full border border-zinc-700 text-zinc-300 hover:text-[#2dd4bf]"
-                        >
-                            <Linkedin className="w-5 h-5" />
-                        </a>
-                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold">{RESUME_DATA.ctaHeadline}</h2>
                 </div>
+                <p className="text-muted-foreground leading-relaxed max-w-xl">
+                    {RESUME_DATA.ctaDescription}
+                </p>
+                <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                        href={`mailto:${RESUME_DATA.personal.email}`}
+                        className="inline-flex items-center gap-2 px-5 h-10 rounded-lg bg-[#2dd4bf] text-black font-semibold text-sm hover:bg-[#2dd4bf]/90 transition-colors"
+                    >
+                        <Mail className="h-4 w-4" /> Email Me
+                    </a>
+                    <a
+                        href={RESUME_DATA.personal.resumeLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 h-10 rounded-lg border border-border text-sm hover:bg-accent transition-colors"
+                    >
+                        <Download className="h-4 w-4" /> Download Resume
+                    </a>
+                    <a
+                        href={RESUME_DATA.personal.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 h-10 rounded-lg border border-border text-sm hover:bg-accent transition-colors"
+                    >
+                        <Github className="h-4 w-4" /> GitHub
+                    </a>
+                    <a
+                        href={RESUME_DATA.personal.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 h-10 rounded-lg border border-border text-sm hover:bg-accent transition-colors"
+                    >
+                        <Linkedin className="h-4 w-4" /> LinkedIn
+                    </a>
+                </div>
+            </div>
 
-                <div className="flex items-end justify-center md:justify-end text-xs text-zinc-600 font-mono">
-                    <p>© {new Date().getFullYear()} {RESUME_DATA.personal.name}. Powered By Marshal.</p>
+            {/* Footer bottom */}
+            <div className="border-t border-border pt-8 pb-4 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground">
+                <div className="flex flex-wrap items-center gap-4">
+                    <span className="flex items-center gap-1.5">
+                        <MapPin className="h-3.5 w-3.5 text-[#2dd4bf]" />
+                        {RESUME_DATA.personal.location}
+                    </span>
+                    <a
+                        href={`tel:${RESUME_DATA.personal.phone.replace(/[^0-9+]/g, "")}`}
+                        className="flex items-center gap-1.5 hover:text-[#2dd4bf] transition-colors"
+                    >
+                        <Phone className="h-3.5 w-3.5 text-[#2dd4bf]" />
+                        {RESUME_DATA.personal.phone}
+                    </a>
                 </div>
+                <p className="font-mono">
+                    © {new Date().getFullYear()} {RESUME_DATA.personal.name}. Built with Next.js & Tailwind.
+                </p>
             </div>
         </section>
     );
