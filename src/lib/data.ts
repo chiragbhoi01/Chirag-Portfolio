@@ -66,16 +66,6 @@ export const RESUME_DATA = {
             ]
         }
     ],
-    // Currently building — problem-focused, not just feature list
-    currentlyBuilding: {
-        title: "EcoGuard LakeCity",
-        subtitle: "AI-Powered Waste Management SaaS",
-        description:
-            "Building an AI-powered SaaS to automate waste classification and optimize municipal collection routing using real-time sensor data — targeting Udaipur's lake preservation initiative. The problem: manual waste tracking is slow, error-prone, and doesn't scale.",
-        tech: ["Next.js 15", "OpenAI API", "MongoDB", "WebSockets", "Node.js"],
-        githubLink: "https://github.com/chiragbhoi01/ecoguard-lakecity",
-        startedAt: "Mar 2026",
-    },
     // "How I Build Systems" — system design thinking section
     systemThinking: [
         {

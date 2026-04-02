@@ -1,5 +1,6 @@
 import { RESUME_DATA } from "@/lib/data";
 import type { Project } from "@/types/project";
+import Script from "next/script";
 
 const baseUrl = "https://chiragbhoimarshal.netlify.app";
 
@@ -21,8 +22,10 @@ export function PersonJsonLd() {
   };
 
   return (
-    <script
+    <Script
+      id="person-json-ld"
       type="application/ld+json"
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
@@ -46,8 +49,10 @@ export function ProjectJsonLd({ project }: { project: Project }) {
   };
 
   return (
-    <script
+    <Script
+      id={`project-json-ld-${project.slug}`}
       type="application/ld+json"
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );

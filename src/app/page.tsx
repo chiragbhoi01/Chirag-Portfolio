@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/sections/hero";
 import { Projects } from "@/components/sections/projects";
-import { CurrentlyBuilding } from "@/components/sections/currently-building";
 import { Skills } from "@/components/sections/skills";
 import { Experience } from "@/components/sections/experience";
 import { GitHubSignal } from "@/components/sections/github-signal";
@@ -42,23 +41,21 @@ export default async function Home() {
         <Separator />
         {/* 2. Featured Projects — fetched from Appwrite */}
         <Projects projects={featuredProjects} />
-        {/* 3. Currently Building — momentum signal */}
-        <CurrentlyBuilding />
-        {/* 4. Skills — compact grouped grid */}
+        {/* 3. Skills — compact grouped grid */}
         <Skills />
-        {/* 5. Experience — impact bullets */}
+        {/* 4. Experience — impact bullets */}
         <Experience />
-        {/* 6. GitHub Signal — active developer proof */}
+        {/* 5. GitHub Signal — active developer proof */}
         <GitHubSignal
           totalStars={ghStats.totalStars}
           publicRepos={ghStats.publicRepos}
           followers={ghStats.followers}
         />
-        {/* 7. How I Build Systems — systems thinking differentiator */}
+        {/* 6. How I Build Systems — systems thinking differentiator */}
         <SystemThinking />
-        {/* 8. Philosophy — engineer branding */}
+        {/* 7. Philosophy — engineer branding */}
         <Philosophy />
-        {/* 9. Footer — strong CTA + contact */}
+        {/* 8. Footer — strong CTA + contact */}
         <Footer />
       </main>
     </div>
