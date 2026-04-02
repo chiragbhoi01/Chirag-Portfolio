@@ -1,11 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  reactCompiler: true,
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cloud.appwrite.io',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.appwrite.io',
+      },
+    ],
   },
-
-  trailingSlash: true,
 };
 
 export default nextConfig;
