@@ -76,7 +76,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://cloud.appwrite.io" />
       </head>
-      <body className="font-sans bg-background text-foreground antialiased">
+      <body className="font-sans bg-background text-foreground antialiased" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, Mail, Download, ArrowRight } from "lucide-react";
+import { Github, Mail, FileText, ArrowRight } from "lucide-react";
 import { RESUME_DATA } from "@/lib/data";
 import { motion } from "framer-motion";
 import type { Easing } from "framer-motion";
@@ -39,7 +39,7 @@ export function Hero() {
         {RESUME_DATA.personal.name}
       </motion.h1>
 
-      {/* Specific positioning — what I build, not just what I am */}
+      {/* Specific positioning */}
       <motion.p
         {...fadeUp(0.14)}
         className="text-xl md:text-2xl font-medium text-muted-foreground leading-snug max-w-2xl"
@@ -55,7 +55,7 @@ export function Hero() {
         {RESUME_DATA.personal.summary}
       </motion.p>
 
-      {/* Credibility stats — scannable in 3 seconds */}
+      {/* Credibility stats */}
       <motion.div
         {...fadeUp(0.26)}
         className="flex flex-wrap gap-x-6 gap-y-2 py-1"
@@ -88,14 +88,9 @@ export function Hero() {
           className="border-input hover:bg-accent h-11 px-6"
           asChild
         >
-          <a
-            href={RESUME_DATA.personal.resumeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Download resume"
-          >
-            <Download className="mr-2 h-4 w-4" /> Resume
-          </a>
+          <Link href="/resume" aria-label="View resume">
+            <FileText className="mr-2 h-4 w-4" /> Resume
+          </Link>
         </Button>
         <Button
           size="lg"

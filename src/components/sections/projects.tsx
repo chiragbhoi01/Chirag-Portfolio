@@ -4,8 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { RESUME_DATA } from "@/lib/data";
 import { RevealOnScroll } from "@/components/animations/reveal-on-scroll";
+import type { Project } from "@/types/project";
 
 const STATUS_DOT: Record<string, string> = {
   production: "bg-emerald-500",
@@ -13,7 +13,11 @@ const STATUS_DOT: Record<string, string> = {
   archived: "bg-zinc-500",
 };
 
-export function Projects() {
+interface ProjectsProps {
+  projects: Project[];
+}
+
+export function Projects({ projects }: ProjectsProps) {
   return (
     <section id="projects" className="space-y-10">
       <RevealOnScroll>
@@ -34,8 +38,8 @@ export function Projects() {
       </RevealOnScroll>
 
       <div className="grid md:grid-cols-2 gap-6">
-        {RESUME_DATA.featuredProjects.map((project, i) => (
-          <RevealOnScroll key={project.title} delay={i * 0.1}>
+        {projects.map((project, i) => (
+          <RevealOnScroll key={project.$id} delay={i * 0.1}>
             <motion.div
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
@@ -43,12 +47,10 @@ export function Projects() {
             >
               {/* Card header */}
               <div className="p-6 pb-4 space-y-3 grow">
-                {/* Status + category row */}
+                {/* Status + category */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span
-                      className={`h-2 w-2 rounded-full ${STATUS_DOT[project.status] ?? "bg-zinc-400"}`}
-                    />
+                    <span className={`h-2 w-2 rounded-full ${STATUS_DOT[project.status] ?? "bg-zinc-400"}`} />
                     <span className="text-xs text-muted-foreground capitalize">{project.status}</span>
                   </div>
                   <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
@@ -56,38 +58,43 @@ export function Projects() {
                   </span>
                 </div>
 
-                {/* Title + subtitle */}
+                {/* Title — links to case study */}
                 <div>
-                  <h3 className="text-xl font-bold leading-snug group-hover:text-[#2dd4bf] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-0.5">{project.subtitle}</p>
+                  <Link href={`/projects/${project.slug}`}>
+                    <h3 className="text-xl font-bold leading-snug group-hover:text-[#2dd4bf] transition-colors">
+                      {project.title}
+                    </h3>
+                  </Link>
+                  {project.problemStatement && (
+                    <p className="text-xs text-[#2dd4bf]/70 font-mono mt-1 leading-snug line-clamp-1">
+                      {project.problemStatement}
+                    </p>
+                  )}
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
-                {/* Signal-boost metrics */}
-                <p className="text-xs text-[#2dd4bf]/80 font-mono">{project.metrics}</p>
-
-                {/* Signal-boost tags */}
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="text-[10px] px-2 py-0.5 border-[#2dd4bf]/20 text-[#2dd4bf] bg-[#2dd4bf]/5"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
+                {/* Engineering-signal tags (features) */}
+                {project.features.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.features.slice(0, 4).map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="outline"
+                        className="text-[10px] px-2 py-0.5 border-[#2dd4bf]/20 text-[#2dd4bf] bg-[#2dd4bf]/5"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
 
                 {/* Tech stack */}
                 <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.tech.map((t) => (
+                  {project.techStack.slice(0, 5).map((t) => (
                     <span
                       key={t}
                       className="text-[10px] border border-border px-2 py-0.5 rounded bg-secondary/50 text-secondary-foreground"
@@ -95,27 +102,44 @@ export function Projects() {
                       {t}
                     </span>
                   ))}
+                  {project.techStack.length > 5 && (
+                    <span className="text-[10px] text-muted-foreground px-1 py-0.5">
+                      +{project.techStack.length - 5}
+                    </span>
+                  )}
                 </div>
               </div>
 
               {/* Footer links */}
               <div className="px-6 pb-6 flex gap-2">
-                <a
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={`/projects/${project.slug}`}
                   className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-lg bg-[#2dd4bf] text-black hover:bg-[#2dd4bf]/90 font-semibold text-xs transition-colors"
                 >
-                  <ExternalLink className="h-3 w-3" /> Live Demo
-                </a>
-                <a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-lg border border-border text-xs hover:bg-accent transition-colors"
-                >
-                  <Github className="h-3 w-3" /> Code
-                </a>
+                  Case Study <ArrowRight className="h-3 w-3" />
+                </Link>
+                {project.liveUrl && project.liveUrl !== project.githubUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-lg border border-border text-xs hover:bg-accent transition-colors"
+                    aria-label="Live demo"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-lg border border-border text-xs hover:bg-accent transition-colors"
+                    aria-label="GitHub repository"
+                  >
+                    <Github className="h-3 w-3" />
+                  </a>
+                )}
               </div>
             </motion.div>
           </RevealOnScroll>

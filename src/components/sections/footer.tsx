@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Download } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import Link from "next/link";
 import { RESUME_DATA } from "@/lib/data";
 
 export function Footer() {
@@ -22,14 +23,12 @@ export function Footer() {
                     >
                         <Mail className="h-4 w-4" /> Email Me
                     </a>
-                    <a
-                        href={RESUME_DATA.personal.resumeLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        href="/resume"
                         className="inline-flex items-center gap-2 px-5 h-10 rounded-lg border border-border text-sm hover:bg-accent transition-colors"
                     >
-                        <Download className="h-4 w-4" /> Download Resume
-                    </a>
+                        View Resume
+                    </Link>
                     <a
                         href={RESUME_DATA.personal.github}
                         target="_blank"
@@ -65,7 +64,7 @@ export function Footer() {
                     </a>
                 </div>
                 <p className="font-mono">
-                    © {new Date().getFullYear()} {RESUME_DATA.personal.name}. Built with Next.js & Tailwind.
+                    © {new Date().getFullYear()} {RESUME_DATA.personal.name}. Built with Next.js &amp; Tailwind.
                 </p>
             </div>
         </section>

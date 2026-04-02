@@ -7,10 +7,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cloud.appwrite.io',
       },
-      {
-        protocol: 'https',
-        hostname: '**.appwrite.io',
-      },
     ],
   },
 };

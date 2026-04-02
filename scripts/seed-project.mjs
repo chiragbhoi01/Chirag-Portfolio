@@ -9,18 +9,26 @@
 
 import { readFileSync } from "fs";
 import { createInterface } from "readline";
-import { Client, Databases, ID } from "node-appwrite";
+import { Client, Databases, ID, Query } from "node-appwrite";
 import matter from "gray-matter";
 
-// ─── Config (loaded from env) ────────────────────────────────────────────────
-const ENDPOINT = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT ?? "https://cloud.appwrite.io/v1";
-const PROJECT_ID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID ?? "";
+// ─── Config ──────────────────────────────────────────────────────────────────
+const ENDPOINT    = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT ?? "https://cloud.appwrite.io/v1";
+const PROJECT_ID  = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID ?? "";
 const DATABASE_ID = process.env.APPWRITE_DATABASE_ID ?? "";
 const COLLECTION_ID = process.env.APPWRITE_PROJECTS_COLLECTION_ID ?? "";
-const API_KEY = process.env.APPWRITE_API_KEY ?? "";
+const API_KEY     = process.env.APPWRITE_API_KEY ?? "";
+
+// ─── Appwrite client helper ───────────────────────────────────────────────────
+function getDbClient() {
+  const client = new Client()
+    .setEndpoint(ENDPOINT)
+    .setProject(PROJECT_ID)
+    .setKey(API_KEY);
+  return new Databases(client);
+}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
-
 function slugify(text) {
   return text
     .toLowerCase()
@@ -30,13 +38,11 @@ function slugify(text) {
     .replace(/-+/g, "-");
 }
 
-/** Extract H1 title */
 function extractTitle(content) {
   const match = content.match(/^#\s+(.+)/m);
   return match ? match[1].trim() : "";
 }
 
-/** Extract first non-heading paragraph as description */
 function extractDescription(content) {
   const lines = content.split("\n");
   for (const line of lines) {
@@ -48,10 +54,18 @@ function extractDescription(content) {
   return "";
 }
 
-/** Extract bullet-list items under a heading */
+/** Escape regex special characters in a string */
+function escapeRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * Extract bullet-list items under a heading (case-insensitive).
+ * Returns an array of strings.
+ */
 function extractSection(content, heading) {
   const regex = new RegExp(
-    `##\\s+${heading}[\\s\\S]*?\\n([\\s\\S]*?)(?=\\n##|$)`,
+    `##\\s+${escapeRegex(heading)}[\\s\\S]*?\\n([\\s\\S]*?)(?=\\n##|$)`,
     "i"
   );
   const match = content.match(regex);
@@ -62,13 +76,32 @@ function extractSection(content, heading) {
     .filter(Boolean);
 }
 
-/** Detect tech stack from content using a known-tech whitelist */
+/**
+ * Extract a prose block under a heading as a single string.
+ * Used for problemStatement and challenges.
+ */
+function extractProseSection(content, heading) {
+  const regex = new RegExp(
+    `##\\s+${escapeRegex(heading)}[\\s\\S]*?\\n([\\s\\S]*?)(?=\\n##|$)`,
+    "i"
+  );
+  const match = content.match(regex);
+  if (!match) return "";
+  return match[1]
+    .split("\n")
+    .map((l) => l.replace(/^[-*]\s+/, "").trim())
+    .filter(Boolean)
+    .join(" ")
+    .trim();
+}
+
 const KNOWN_TECH = [
   "Next.js", "React", "Node.js", "Express", "MongoDB", "TypeScript",
   "JavaScript", "Tailwind", "Firebase", "Appwrite", "Prisma",
   "PostgreSQL", "MySQL", "Redis", "Docker", "AWS", "Vercel",
   "Netlify", "JWT", "OAuth", "GraphQL", "REST", "Vite", "Webpack",
   "OpenAI", "Framer Motion", "Shadcn", "Zustand", "Redux",
+  "WebSockets", "Chart.js",
 ];
 
 function detectTechStack(content) {
@@ -77,21 +110,33 @@ function detectTechStack(content) {
   );
 }
 
-/** Extract URLs from markdown */
 function extractUrls(content) {
   const github = content.match(/https?:\/\/github\.com\/[^\s)>\"]+/)?.[0] ?? "";
   const live = content.match(/https?:\/\/(?!github)[^\s)>\"]+/)?.[0] ?? "";
   return { githubUrl: github, liveUrl: live };
 }
 
-// ─── Interactive prompt ───────────────────────────────────────────────────────
-
 function prompt(rl, question) {
   return new Promise((resolve) => rl.question(question, resolve));
 }
 
-// ─── Appwrite push ───────────────────────────────────────────────────────────
+// ─── Slug uniqueness check ────────────────────────────────────────────────────
+async function isSlugUnique(slug) {
+  if (!API_KEY || !PROJECT_ID || !DATABASE_ID || !COLLECTION_ID) return true; // can't check without creds
 
+  try {
+    const db = getDbClient();
+    const result = await db.listDocuments(DATABASE_ID, COLLECTION_ID, [
+      Query.equal("slug", slug),
+      Query.limit(1),
+    ]);
+    return result.total === 0;
+  } catch {
+    return true; // assume unique if check fails
+  }
+}
+
+// ─── Appwrite push ────────────────────────────────────────────────────────────
 async function pushToAppwrite(projectData) {
   if (!API_KEY || !PROJECT_ID || !DATABASE_ID || !COLLECTION_ID) {
     console.log("\n⚠️  Appwrite credentials not set. Printing JSON instead:\n");
@@ -99,14 +144,9 @@ async function pushToAppwrite(projectData) {
     return;
   }
 
-  const client = new Client()
-    .setEndpoint(ENDPOINT)
-    .setProject(PROJECT_ID)
-    .setKey(API_KEY);
+  const db = getDbClient();
 
-  const databases = new Databases(client);
-
-  const doc = await databases.createDocument(
+  const doc = await db.createDocument(
     DATABASE_ID,
     COLLECTION_ID,
     ID.unique(),
@@ -114,10 +154,11 @@ async function pushToAppwrite(projectData) {
   );
 
   console.log(`\n✅ Project created! Document ID: ${doc.$id}`);
+  console.log(`   Slug: ${projectData.slug}`);
+  console.log(`   Live at: https://chiragbhoimarshal.netlify.app/projects/${projectData.slug}`);
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
-
 async function main() {
   const filePath = process.argv[2];
   if (!filePath) {
@@ -128,39 +169,81 @@ async function main() {
   const raw = readFileSync(filePath, "utf-8");
   const { content, data: frontmatter } = matter(raw);
 
-  // Parse README
+  // Parse README — auto-detect all fields
   const title = frontmatter.title ?? extractTitle(content);
   const description = frontmatter.description ?? extractDescription(content);
   const techStack = frontmatter.techStack ?? detectTechStack(content);
   const features = frontmatter.features ?? extractSection(content, "features");
+
+  // Auto-extract problem statement from common headings
+  const problemStatement =
+    frontmatter.problemStatement ??
+    extractProseSection(content, "problem") ||
+    extractProseSection(content, "problem statement") ||
+    extractProseSection(content, "motivation") ||
+    extractProseSection(content, "why") ||
+    "";
+
+  // Auto-extract challenges section
+  const challenges =
+    frontmatter.challenges ??
+    extractProseSection(content, "challenges") ||
+    extractProseSection(content, "challenges & solutions") ||
+    extractProseSection(content, "technical challenges") ||
+    "";
+
   const { githubUrl, liveUrl } = extractUrls(content);
 
-  // Interactive prompts for fields we can't infer
   const rl = createInterface({ input: process.stdin, output: process.stdout });
 
   console.log(`\n📄 Parsed from README:`);
-  console.log(`  Title       : ${title}`);
-  console.log(`  Description : ${description}`);
-  console.log(`  Tech Stack  : ${techStack.join(", ")}`);
-  console.log(`  Features    : ${features.slice(0, 3).join(", ")}${features.length > 3 ? "..." : ""}`);
-  console.log(`  GitHub URL  : ${githubUrl}`);
-  console.log(`  Live URL    : ${liveUrl}`);
+  console.log(`  Title            : ${title}`);
+  console.log(`  Description      : ${description}`);
+  console.log(`  Tech Stack       : ${techStack.join(", ")}`);
+  console.log(`  Features         : ${features.slice(0, 3).join(", ")}${features.length > 3 ? "..." : ""}`);
+  console.log(`  Problem Statement: ${problemStatement ? problemStatement.slice(0, 80) + "..." : "(not detected)"}`);
+  console.log(`  Challenges       : ${challenges ? challenges.slice(0, 80) + "..." : "(not detected)"}`);
+  console.log(`  GitHub URL       : ${githubUrl}`);
+  console.log(`  Live URL         : ${liveUrl}`);
   console.log("");
 
   const confirmedTitle = (await prompt(rl, `Title [${title}]: `)) || title;
-  const confirmedSlug = (await prompt(rl, `Slug [${slugify(confirmedTitle)}]: `)) || slugify(confirmedTitle);
+
+  // Slug: suggest, then check uniqueness
+  let defaultSlug = slugify(confirmedTitle);
+  let confirmedSlug = (await prompt(rl, `Slug [${defaultSlug}]: `)) || defaultSlug;
+
+  const unique = await isSlugUnique(confirmedSlug);
+  if (!unique) {
+    console.log(`\n⚠️  Slug "${confirmedSlug}" already exists in Appwrite.`);
+    confirmedSlug = await prompt(rl, `Enter a different slug: `);
+    if (!confirmedSlug) {
+      console.error("Slug is required. Aborting.");
+      rl.close();
+      process.exit(1);
+    }
+  }
+
   const confirmedLiveUrl = (await prompt(rl, `Live URL [${liveUrl}]: `)) || liveUrl;
   const confirmedGithubUrl = (await prompt(rl, `GitHub URL [${githubUrl}]: `)) || githubUrl;
+
   const categoryInput = await prompt(rl, "Category (saas/ai/ecommerce/other) [other]: ");
   const category = ["saas", "ai", "ecommerce", "other"].includes(categoryInput.toLowerCase())
     ? categoryInput.toLowerCase()
     : "other";
+
   const statusInput = await prompt(rl, "Status (production/building/archived) [production]: ");
   const status = ["production", "building", "archived"].includes(statusInput.toLowerCase())
     ? statusInput.toLowerCase()
     : "production";
+
   const featuredInput = await prompt(rl, "Featured on homepage? (y/n) [n]: ");
   const featured = featuredInput.toLowerCase() === "y";
+
+  // Allow manual override of auto-detected fields
+  const confirmedProblem =
+    (await prompt(rl, `Problem Statement [${problemStatement ? "auto-detected, press Enter to keep" : "enter manually"}]: `)) ||
+    problemStatement;
 
   rl.close();
 
@@ -176,8 +259,8 @@ async function main() {
     liveUrl: confirmedLiveUrl,
     featured,
     status,
-    problemStatement: "",
-    challenges: "",
+    problemStatement: confirmedProblem,
+    challenges,
     coverImage: "",
     createdAt: new Date().toISOString(),
   };

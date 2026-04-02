@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
 import { RESUME_DATA } from "@/lib/data";
 import { ModeToggle } from "@/components/mode-toggle";
 
 const NAV_LINKS = [
   { label: "Projects", href: "/projects" },
+  { label: "Resume", href: "/resume" },
   { label: "How I Built This", href: "/how-i-built-this" },
 ];
 
@@ -48,14 +48,9 @@ export function Navbar() {
             size="sm"
             className="bg-[#2dd4bf] text-black hover:bg-[#2dd4bf]/90 font-semibold"
           >
-            <a
-              href={RESUME_DATA.personal.resumeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download resume"
-            >
-              <Download className="mr-2 h-4 w-4" /> Resume
-            </a>
+            <Link href="/resume" aria-label="View resume">
+              View Resume
+            </Link>
           </Button>
         </div>
       </div>
