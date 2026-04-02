@@ -2,9 +2,11 @@ export const RESUME_DATA = {
     personal: {
         name: "Chirag Bhoi",
         initials: "CB",
-        role: "Full-Stack Driven Frontend Developer",
+        role: "Full Stack Developer",
+        // Stronger sub-headline: specific positioning over generic title
+        headline: "Backend-focused Full Stack Developer building production-grade SaaS & API-driven systems.",
         summary:
-            "Hi, I'm Chirag—a passionate Frontend Developer from Udaipur, Rajasthan, specializing in creating responsive, accessible, and high-performance web applications. I focus on delivering seamless UI/UX experiences using modern tech.",
+            "Full Stack Developer specializing in scalable web systems — from RESTful APIs and RBAC authentication layers to high-performance React frontends. I ship production-ready code that handles real users and real edge cases.",
         location: "Udaipur, Rajasthan, India",
         email: "mr.chiragbhoi2003@gmail.com",
         github: "https://github.com/chiragbhoi01",
@@ -13,92 +15,107 @@ export const RESUME_DATA = {
         avatarUrl: "/assets/profile.jpg",
         phone: "(+91) 7427837782"
     },
-    keyRoles: [
-        { role: "Full-Stack Developer", focus: "Building complete applications (Next.js, Node.js, MongoDB)" },
-        { role: "Former Frontend Developer Intern", focus: "IBM SkillBuild CSRBOX (Performance Optimization)" },
-        { role: "Previous Role", focus: "Senior Research Analyst at Arcgate Technologies (Analytical Skills)" },
-        { role: "Enthusiasm", focus: "Modern UI/UX, Performance Optimization, and Continuous Learning" },
-        { role: "Location", focus: "Udaipur, Rajasthan, India" }
+    // Credibility stats bar — scannable proof points shown in hero
+    stats: [
+        { label: "Production Apps", value: "4+" },
+        { label: "Lighthouse Score", value: "95%" },
+        { label: "IBM Intern", value: "✓" },
+        { label: "Public Repos", value: "10+" },
     ],
     technicalSkills: [
         {
-            category: "Frontend Core",
-            skills: ["React.js", "Next.js 14", "JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3"]
+            category: "Core Stack",
+            skills: ["Next.js", "React.js", "TypeScript", "Node.js", "Express.js", "MongoDB"]
         },
         {
-            category: "Styling & UX",
-            skills: ["Tailwind CSS", "Shadcn/ui", "Figma", "Responsive Design"]
+            category: "Frontend & UI",
+            skills: ["Tailwind CSS", "Shadcn/ui", "Framer Motion", "Responsive Design"]
         },
         {
-            category: "Backend & Databases",
-            skills: ["Node.js", "Express.js", "MongoDB (Mongoose)", "Firebase", "REST APIs"]
-        },
-        {
-            category: "State Management",
-            skills: ["React Router", "Redux Toolkit"]
+            category: "Backend & Data",
+            skills: ["REST APIs", "JWT & RBAC", "Firebase", "Appwrite", "Mongoose"]
         },
         {
             category: "Tools & Platforms",
-            skills: ["VS Code", "Postman", "Git", "GitHub", "Vite", "Vercel", "Netlify"]
+            skills: ["Git", "GitHub", "Vercel", "Netlify", "Postman", "Vite"]
         }
     ],
     professionalExperience: [
-        {
-            title: "Senior Research Analyst",
-            company: "Arcgate Technologies",
-            location: "Udaipur, Rajasthan",
-            period: "Feb 2024 – Present",
-            achievements: [
-                "Applied analytical skills to process and analyze large datasets using Excel and Google Sheets, achieving high data accuracy (99%).",
-                "Developed automation scripts, improving data processing efficiency by 20%."
-            ]
-        },
         {
             title: "Frontend Developer Intern",
             company: "IBM SkillBuild CSRBOX",
             location: "Remote",
             period: "Jul 2024 – Aug 2024",
+            type: "Internship",
             achievements: [
-                "Built responsive, accessible web components with React.js, TypeScript, and Tailwind CSS.",
-                "Optimized UI performance, reducing load times by 15% via code splitting and lazy loading."
+                "Built responsive, accessible UI components with React.js, TypeScript, and Tailwind CSS.",
+                "Reduced page load times by 15% by implementing code splitting and lazy loading strategies.",
+                "Delivered production-ready components under IBM engineering standards."
+            ]
+        },
+        {
+            title: "Senior Research Analyst",
+            company: "Arcgate Technologies",
+            location: "Udaipur, Rajasthan",
+            period: "Feb 2024 – Present",
+            type: "Full-time",
+            achievements: [
+                "Maintained 99% data accuracy across large-scale datasets using Excel and Google Sheets.",
+                "Built automation scripts that improved data processing throughput by 20%.",
+                "Applied structured analytical thinking — directly transferable to backend system design."
             ]
         }
     ],
-    featuredProjects: [
+    // "How I Build Systems" — system design thinking section
+    systemThinking: [
         {
-            title: "RAJMAHAL UDAIPUR - Full-Stack E-commerce",
-            description: "A complete E-commerce Rental Platform with a secure Admin CMS.",
-            tech: ["Next.js 14", "Node.js", "Express.js", "MongoDB", "TypeScript", "JWT"],
-            highlights:
-                "Full MERN stack implementation; JWT-based authentication and role-based access control for Admin dashboard; End-to-end data flow and API security.",
-            demoLink: "https://chirag-rajmahaludaipur.vercel.app",
-            githubLink: "https://github.com/fullstackproject"
+            title: "API-First Backend Design",
+            icon: "Server",
+            description:
+                "I design APIs before building UIs. Clean contracts, typed request/response shapes, and consistent error formats — so frontends and third-party consumers can rely on them."
         },
         {
-            title: "Miss Gypsy - Jewelry E-commerce",
-            description: "A responsive e-commerce platform with dynamic product filtering and modern UI.",
-            tech: ["React.js", "Tailwind CSS", "Firebase", "Vite"],
-            highlights: "Achieved 95% Lighthouse performance score; integrated dynamic routing and real-time product data.",
-            demoLink: "https://chirag-shopmissgypsy.vercel.app",
-            githubLink: "https://github.com/chiragbhoi01/Ecommerce-jewellery-website"
+            title: "Scalable Architecture",
+            icon: "GitBranch",
+            description:
+                "Modular service layers, separation of concerns, and database indexing decisions made at design time — not after performance problems surface in production."
         },
         {
-            title: "Personal Portfolio SPA",
-            description: "Single-page application showcasing projects, dynamic theming, and smooth animations with real-time GitHub stats.",
-            tech: ["Next.js", "Shadcn UI", "Framer Motion", "TypeScript", "GitHub API", "Vercel"],
-            highlights: "Real-time GitHub stats integration; mobile-first design with 100% accessibility score; utilizes Shadcn UI components and Framer Motion animations for polished UX.",
-            demoLink: "https://chiragbhoimarshal.netlify.app/",
-            githubLink: "https://github.com/chiragbhoi01/Chirag-Portfolio"
+            title: "Security by Default",
+            icon: "Shield",
+            description:
+                "JWT authentication, role-based access control, input validation, and rate limiting are first-class features — not security theatre added at the end."
         },
         {
-            title: "To-Do App",
-            description: "Clean and responsive task management app with advanced sorting features.",
-            tech: ["React.js", "TypeScript", "Tailwind CSS"],
-            highlights: "Features alphabetical, time, and date-based sorting functionalities; fully built with React and TypeScript.",
-            demoLink: "https://chirag-todoapp.vercel.app/",
-            githubLink: "https://github.com/chiragbhoi01/todo-app"
+            title: "Performance is a Constraint",
+            icon: "Zap",
+            description:
+                "ISR, code splitting, query optimization, and Lighthouse scores are engineering requirements I track — not nice-to-haves left for DevOps to handle."
         }
     ],
+    philosophy: [
+        {
+            principle: "Build for production, not portfolios",
+            detail: "Every project I ship handles real users, real data, and real edge cases. I care about error boundaries, loading states, and auth security — not just the happy path."
+        },
+        {
+            principle: "Performance is a feature",
+            detail: "Slow UIs lose users. I build with code splitting, ISR, optimized images, and Lighthouse scores as acceptance criteria — not afterthoughts."
+        },
+        {
+            principle: "Backend thinking drives frontend decisions",
+            detail: "Understanding APIs, data models, and system constraints makes me a better full stack engineer. I design UIs around the data, not the other way around."
+        }
+    ],
+    targetRoles: [
+        "Full Stack Developer",
+        "Backend Engineer (Node.js / API)",
+        "Frontend Engineer (Next.js / React)",
+    ],
+    // CTA copy shown in footer — aligned to target roles
+    ctaHeadline: "Looking for a Full Stack or Backend role",
+    ctaDescription:
+        "I'm actively looking for roles where I can build scalable systems, design clean APIs, and contribute to production applications. Open to full-time and contract work.",
     education: [
         {
             degree: "Master of Computer Applications (MCA)",
@@ -115,7 +132,7 @@ export const RESUME_DATA = {
     ],
     contact: {
         linkedin: "https://www.linkedin.com/in/chirag-bhoi-90b89b1b1",
-        github: "https://github.com/chiragbhoi0",
+        github: "https://github.com/chiragbhoi01",
         email: "mr.chiragbhoi2003@gmail.com",
         phone: "(+91) 7427837782"
     }
