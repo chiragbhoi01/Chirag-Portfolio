@@ -15,11 +15,23 @@ export const metadata: Metadata = {
 
 /** Convert a Google Drive /view URL to an embeddable /preview URL */
 function toPreviewUrl(url: string): string {
+  if (url.includes("docs.google.com/document/")) {
+    return url.replace(/\/edit(\?.*)?$/, "/preview");
+  }
   return url.replace(/\/view(\?.*)?$/, "/preview");
+}
+
+/** Convert supported Google links to a PDF export URL */
+function toPdfDownloadUrl(url: string): string {
+  if (url.includes("docs.google.com/document/")) {
+    return url.replace(/\/edit(\?.*)?$/, "/export?format=pdf");
+  }
+  return url.replace(/\/view(\?.*)?$/, "/export?format=pdf");
 }
 
 export default function ResumePage() {
   const previewUrl = toPreviewUrl(RESUME_DATA.personal.resumeLink);
+  const downloadUrl = toPdfDownloadUrl(RESUME_DATA.personal.resumeLink);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-[#2dd4bf] selection:text-black flex flex-col">
@@ -51,7 +63,7 @@ export default function ResumePage() {
               <span className="hidden sm:inline">Open in Drive</span>
             </a>
             <a
-              href={RESUME_DATA.personal.resumeLink.replace(/\/view(\?.*)?$/, "/export?format=pdf")}
+              href={downloadUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 h-8 rounded-md bg-[#2dd4bf] text-black text-xs font-semibold hover:bg-[#2dd4bf]/90 transition-colors"
