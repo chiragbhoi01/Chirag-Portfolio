@@ -8,6 +8,7 @@ import type { Project, ProjectCategory } from "@/types/project";
 
 const CATEGORIES: { value: ProjectCategory | "all"; label: string }[] = [
   { value: "all", label: "All" },
+  { value: "fullstack", label: "Full Stack" },
   { value: "saas", label: "SaaS" },
   { value: "ai", label: "AI" },
   { value: "ecommerce", label: "E-commerce" },

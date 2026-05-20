@@ -3,70 +3,79 @@ export const RESUME_DATA = {
         name: "Chirag Bhoi",
         initials: "CB",
         role: "Full Stack Developer",
-        // Stronger sub-headline: specific positioning over generic title
-        headline: "Backend-focused Full Stack Developer building production-grade SaaS & API-driven systems.",
+        headline: "Full Stack Developer building production-grade SaaS, e-commerce platforms & API-driven systems.",
         summary:
-            "Full Stack Developer specializing in scalable web systems — from RESTful APIs and RBAC authentication layers to high-performance React frontends. I ship production-ready code that handles real users and real edge cases.",
+            "Full Stack Developer with hands-on experience building production-grade web applications using the MERN stack, Next.js 14/15, TypeScript, and Tailwind CSS. Delivered 4+ production apps including a full-stack e-commerce platform with JWT authentication and role-based access control. Currently interning at Creative Upaay, contributing to real client projects.",
         location: "Udaipur, Rajasthan, India",
         email: "mr.chiragbhoi2003@gmail.com",
         github: "https://github.com/chiragbhoi01",
-        resumeLink: "https://docs.google.com/document/d/1s05qQ_Lg8-rpYvVZow8DSQqDHObXMKSdSa94OdTlGWo/edit?usp=sharing",
+        resumeLink: "https://drive.google.com/file/d/1gA11cq86z5Mms0PyGe0up6nNZL59mx2L/view?usp=drive_link",
         linkedin: "https://www.linkedin.com/in/chirag-bhoi-90b89b1b1",
         avatarUrl: "/assets/profile.jpg",
         phone: "(+91) 7427837782"
     },
-    // Credibility stats bar — scannable proof points shown in hero
     stats: [
         { label: "Production Apps", value: "4+" },
-        { label: "Lighthouse Score", value: "95%" },
-        { label: "IBM Intern", value: "✓" },
+        { label: "State Finalist", value: "✓" },
+        { label: "Current Intern", value: "Creative Upaay" },
         { label: "Public Repos", value: "10+" },
     ],
     technicalSkills: [
         {
             category: "Core Stack",
-            skills: ["Next.js", "React.js", "TypeScript", "Node.js", "Express.js", "MongoDB"]
+            skills: ["Next.js 14/15", "React.js", "TypeScript", "Node.js", "Express.js", "MongoDB"]
         },
         {
             category: "Frontend & UI",
-            skills: ["Tailwind CSS", "Shadcn/ui", "Framer Motion", "Responsive Design"]
+            skills: ["Tailwind CSS", "Shadcn/ui", "Framer Motion", "HTML5", "CSS3", "Responsive Design"]
         },
         {
             category: "Backend & Data",
-            skills: ["REST APIs", "JWT & RBAC", "Firebase", "Appwrite", "Mongoose"]
+            skills: ["REST APIs", "JWT & RBAC", "Firebase", "Appwrite", "Mongoose", "WebSockets"]
         },
         {
             category: "Tools & Platforms",
-            skills: ["Git", "GitHub", "Vercel", "Netlify", "Postman", "Vite"]
+            skills: ["Git", "GitHub", "Vercel", "Netlify", "Postman", "Vite", "Chart.js", "VS Code"]
         }
     ],
     professionalExperience: [
         {
-            title: "Frontend Developer Intern",
-            company: "IBM SkillBuild CSRBOX",
-            location: "Remote",
-            period: "Jul 2024 – Aug 2024",
+            title: "Full Stack Engineer Intern",
+            company: "Creative Upaay",
+            location: "Udaipur",
+            period: "Feb 2026 – Present",
             type: "Internship",
             achievements: [
-                "Built responsive, accessible UI components with React.js, TypeScript, and Tailwind CSS.",
-                "Reduced page load times by 15% by implementing code splitting and lazy loading strategies.",
-                "Delivered production-ready components under IBM engineering standards."
+                "Build and maintain production web interfaces for real clients using React.js and Next.js.",
+                "Write clean, reusable component code with TypeScript and Tailwind CSS following industry standards.",
+                "Collaborate with designers and backend teams on feature delivery; participate in code reviews and UI/UX iterations."
+            ]
+        },
+        {
+            title: "Frontend Developer Intern",
+            company: "IBM SkillBuild – CSRBOX",
+            location: "Remote",
+            period: "Jun 2024 – Aug 2024",
+            type: "Internship",
+            achievements: [
+                "Built a complete, production-ready food-ordering website from scratch using HTML, CSS, JavaScript, and Bootstrap.",
+                "Integrated third-party RESTful APIs for real-time data display; optimised for cross-browser compatibility and mobile responsiveness.",
+                "Reduced page load times by 15% through code splitting and lazy loading techniques."
             ]
         },
         {
             title: "Senior Research Analyst",
             company: "Arcgate Technologies",
             location: "Udaipur, Rajasthan",
-            period: "Feb 2024 – Present",
+            period: "Feb 2024 – Jan 2026",
             type: "Full-time",
             achievements: [
-                "Maintained 99% data accuracy across large-scale datasets using Excel and Google Sheets.",
+                "Maintained 99% data accuracy across large-scale datasets; streamlined client data management workflows.",
                 "Built automation scripts that improved data processing throughput by 20%.",
-                "Applied structured analytical thinking — directly transferable to backend system design."
+                "Collaborated across cross-functional teams to ensure data integrity and on-time delivery for global clients."
             ]
         }
     ],
-    // "How I Build Systems" — system design thinking section
     systemThinking: [
         {
             title: "API-First Backend Design",
@@ -112,7 +121,6 @@ export const RESUME_DATA = {
         "Backend Engineer (Node.js / API)",
         "Frontend Engineer (Next.js / React)",
     ],
-    // CTA copy shown in footer — aligned to target roles
     ctaHeadline: "Looking for a Full Stack or Backend role",
     ctaDescription:
         "I'm actively looking for roles where I can build scalable systems, design clean APIs, and contribute to production applications. Open to full-time and contract work.",
@@ -120,13 +128,13 @@ export const RESUME_DATA = {
         {
             degree: "Master of Computer Applications (MCA)",
             institution: "Manipal University Jaipur",
-            location: "Remote",
+            location: "Rajasthan",
             period: "Mar 2024 – Mar 2026"
         },
         {
             degree: "Bachelor of Science (B.Sc.)",
             institution: "Janardan Rai Nagar Rajasthan Vidyapeeth",
-            location: "Udaipur",
+            location: "Udaipur, Rajasthan",
             period: "Aug 2020 – Jul 2023"
         }
     ],

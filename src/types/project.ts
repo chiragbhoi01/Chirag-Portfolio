@@ -1,4 +1,4 @@
-export type ProjectCategory = "saas" | "ai" | "ecommerce" | "other";
+export type ProjectCategory = "saas" | "ai" | "ecommerce" | "fullstack" | "other";
 export type ProjectStatus = "production" | "building" | "archived";
 
 export interface Project {

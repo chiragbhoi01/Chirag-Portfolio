@@ -1,11 +1,10 @@
 import { RESUME_DATA } from "@/lib/data";
 import type { Project } from "@/types/project";
-import Script from "next/script";
 
 const baseUrl = "https://chiragbhoimarshal.netlify.app";
 
 export function PersonJsonLd() {
-  const schema = {
+  const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: RESUME_DATA.personal.name,
@@ -21,13 +20,27 @@ export function PersonJsonLd() {
     sameAs: [RESUME_DATA.personal.github, RESUME_DATA.personal.linkedin],
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Chirag Bhoi Portfolio",
+    url: baseUrl,
+    description:
+      "Full Stack Developer specializing in Next.js, Node.js, and MongoDB. Building production-grade web applications.",
+    author: { "@type": "Person", name: RESUME_DATA.personal.name },
+  };
+
   return (
-    <Script
-      id="person-json-ld"
-      type="application/ld+json"
-      strategy="afterInteractive"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+    </>
   );
 }
 
@@ -49,10 +62,8 @@ export function ProjectJsonLd({ project }: { project: Project }) {
   };
 
   return (
-    <Script
-      id={`project-json-ld-${project.slug}`}
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
