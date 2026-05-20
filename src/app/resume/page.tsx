@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Download, ExternalLink } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { RESUME_DATA } from "@/lib/data";
 
@@ -10,29 +10,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://chiragbhoimarshal.netlify.app/resume",
   },
-  robots: { index: false, follow: false },
 };
 
-/** Convert a Google Drive /view URL to an embeddable /preview URL */
-function toPreviewUrl(url: string): string {
-  if (url.includes("docs.google.com/document/")) {
-    return url.replace(/\/edit(\?.*)?$/, "/preview");
-  }
-  return url.replace(/\/view(\?.*)?$/, "/preview");
-}
-
-/** Convert supported Google links to a PDF export URL */
-function toPdfDownloadUrl(url: string): string {
-  if (url.includes("docs.google.com/document/")) {
-    return url.replace(/\/edit(\?.*)?$/, "/export?format=pdf");
-  }
-  return url.replace(/\/view(\?.*)?$/, "/export?format=pdf");
-}
-
 export default function ResumePage() {
-  const previewUrl = toPreviewUrl(RESUME_DATA.personal.resumeLink);
-  const downloadUrl = toPdfDownloadUrl(RESUME_DATA.personal.resumeLink);
-
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-[#2dd4bf] selection:text-black flex flex-col">
       <Navbar />
@@ -51,38 +31,24 @@ export default function ResumePage() {
             {RESUME_DATA.personal.name} — Resume
           </span>
 
-          <div className="flex items-center gap-2 shrink-0">
-            <a
-              href={RESUME_DATA.personal.resumeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Open in Google Drive"
-            >
-              <ExternalLink className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">Open in Drive</span>
-            </a>
-            <a
-              href={downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 h-8 rounded-md bg-[#2dd4bf] text-black text-xs font-semibold hover:bg-[#2dd4bf]/90 transition-colors"
-              aria-label="Download PDF"
-            >
-              <Download className="h-3.5 w-3.5" /> Download
-            </a>
-          </div>
+          <a
+            href="/Chirag_Resume.pdf"
+            download
+            className="inline-flex items-center gap-1.5 px-3 h-8 rounded-md bg-[#2dd4bf] text-black text-xs font-semibold hover:bg-[#2dd4bf]/90 transition-colors"
+            aria-label="Download PDF"
+          >
+            <Download className="h-3.5 w-3.5" /> Download
+          </a>
         </div>
       </div>
 
-      {/* Iframe viewer */}
+      {/* PDF viewer */}
       <main className="flex-1 flex flex-col">
         <iframe
-          src={previewUrl}
+          src="/Chirag_Resume.pdf"
           title={`${RESUME_DATA.personal.name} Resume`}
           className="flex-1 w-full border-0"
           style={{ minHeight: "calc(100vh - 7rem)" }}
-          allowFullScreen
         />
       </main>
     </div>
