@@ -15,7 +15,7 @@ import { getGitHubStats } from "@/lib/github";
 export const revalidate = 86400; // revalidate homepage once per day
 
 export default async function Home() {
-  // Fetch featured projects from Appwrite (falls back to FALLBACK_PROJECTS if unconfigured)
+  // Fetch featured projects
   const featuredProjects = await getFeaturedProjects();
 
   // Fetch GitHub stats; fail gracefully so the page always renders
@@ -39,7 +39,7 @@ export default async function Home() {
         {/* 1. Hero — value prop, stats, CTAs */}
         <Hero />
         <Separator />
-        {/* 2. Featured Projects — fetched from Appwrite */}
+        {/* 2. Featured Projects */}
         <Projects projects={featuredProjects} />
         {/* 3. Skills — compact grouped grid */}
         <Skills />

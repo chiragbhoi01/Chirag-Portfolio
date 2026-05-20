@@ -8,14 +8,14 @@ import { Badge } from "@/components/ui/badge";
 export const metadata: Metadata = {
   title: "How I Built This Portfolio",
   description:
-    "A deep dive into the system design, database architecture, SEO strategy, and automation behind Chirag Bhoi's developer portfolio — built with Next.js 15, Appwrite, TypeScript, and Framer Motion.",
+    "A deep dive into the system design, SEO strategy, and architecture behind Chirag Bhoi's developer portfolio — built with Next.js 15, TypeScript, and Framer Motion.",
   alternates: {
     canonical: "https://chiragbhoimarshal.netlify.app/how-i-built-this",
   },
 };
 
 const TECH_BADGES = [
-  "Next.js 15", "App Router", "Appwrite", "TypeScript",
+  "Next.js 15", "App Router", "TypeScript",
   "Tailwind CSS", "Framer Motion", "ISR", "JSON-LD", "Netlify",
 ];
 
@@ -127,8 +127,7 @@ export default function HowIBuiltThis() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             {[
               "Server Components for all data-fetching — zero client bundle cost for project data",
-              "Appwrite as the database — schema-validated, self-hostable, with a REST SDK",
-              "Static fallback in data.ts — if Appwrite is unreachable, the site still works perfectly",
+              "Static project data in TypeScript — type-safe, no external DB dependency",
               "ISR (revalidate: 3600) on project pages, daily on homepage",
               "generateStaticParams() pre-renders all project slugs at build time",
             ].map((item) => (
@@ -142,7 +141,7 @@ export default function HowIBuiltThis() {
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const slugs = await getProjectSlugs();       // fetched from Appwrite
+  const slugs = await getProjectSlugs();       // static project data
   return slugs.map((slug) => ({ slug }));       // pre-rendered at build time
 }
 
@@ -156,34 +155,31 @@ export async function generateMetadata({ params }) {
 }`}</CodeBlock>
         </CaseSection>
 
-        {/* 03 — Database */}
-        <CaseSection number="03" title="Appwrite Database Design">
+        {/* 03 — Data Architecture */}
+        <CaseSection number="03" title="Project Data Architecture">
           <p className="text-muted-foreground text-sm leading-relaxed">
-            The <code className="text-[#2dd4bf] bg-[#2dd4bf]/5 px-1 rounded text-xs">projects</code> collection
+            The <code className="text-[#2dd4bf] bg-[#2dd4bf]/5 px-1 rounded text-xs">projects</code> data
             schema was designed for two consumers: the UI and search engines.
           </p>
-          <CodeBlock>{`// projects collection schema
+          <CodeBlock>{`// projects data schema (src/lib/appwrite/queries.ts)
 {
   title:            string   // required
   slug:             string   // unique — used as URL path
   description:      string   // 160 chars max — used as meta description
-  content:          string   // full markdown case study
+  content:          string   // full case study text
   techStack:        string[] // e.g. ["Next.js", "MongoDB"]
   features:         string[] // bullet list for SEO + UI
-  category:         enum     // saas | ai | ecommerce | other
+  category:         enum     // saas | ai | ecommerce | fullstack | other
   status:           enum     // production | building | archived
   featured:         boolean  // controls homepage section
   problemStatement: string   // for case study UX
-  challenges:       string   // markdown — challenges & solutions
   githubUrl:        url      // optional
   liveUrl:          url      // optional
-  coverImage:       string   // Appwrite storage file ID
   createdAt:        datetime // ISO — used in sitemap lastModified
 }`}</CodeBlock>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            The queries layer (<code className="text-[#2dd4bf] bg-[#2dd4bf]/5 px-1 rounded text-xs">src/lib/appwrite/queries.ts</code>) wraps all
-            Appwrite calls with graceful fallback to static data — making the
-            system resilient to database downtime.
+            The queries layer wraps all data access with typed functions —
+            making it easy to swap data sources without touching UI code.
           </p>
         </CaseSection>
 
@@ -194,9 +190,9 @@ export async function generateMetadata({ params }) {
           </p>
           <ul className="space-y-2 text-sm text-muted-foreground">
             {[
-              "Per-page generateMetadata() — title, description, canonical URL, OG image all from Appwrite data",
+              "Per-page generateMetadata() — title, description, canonical URL, OG image from project data",
               "JSON-LD structured data — Person schema on homepage, SoftwareSourceCode schema on project pages",
-              "Dynamic sitemap.ts — includes all /projects/[slug] routes fetched from Appwrite at build time",
+              "Dynamic sitemap.ts — includes all /projects/[slug] routes generated at build time",
               "robots.ts — programmatic robots file allowing all pages, disallowing /api/",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
@@ -207,27 +203,21 @@ export async function generateMetadata({ params }) {
           </ul>
         </CaseSection>
 
-        {/* 05 — Automation */}
-        <CaseSection number="05" title="Automation Script: README → Database">
+        {/* 05 — Architecture Decisions */}
+        <CaseSection number="05" title="Why Static Data Over a Database">
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Adding a project is a single command. The script parses a README,
-            extracts structured data, prompts for missing fields, and pushes
-            to Appwrite:
+            For a portfolio site, static data in TypeScript gives the best
+            tradeoffs:
           </p>
-          <CodeBlock>{`node scripts/seed-project.mjs ./path/to/README.md
-
-# Pipeline:
-# 1. Read README.md
-# 2. Extract H1 as title, first paragraph as description (≤160 chars)
-# 3. Detect tech stack against a 30-item whitelist
-# 4. Extract features from bullet lists
-# 5. Generate slug from title (kebab-case)
-# 6. Prompt interactively: category, liveUrl, githubUrl, featured
-# 7. Push to Appwrite via node-appwrite SDK
-# 8. Print the created document $id`}</CodeBlock>
+          <CodeBlock>{`// Benefits of static project data:
+// 1. Zero cold starts — no DB connection needed
+// 2. Type-safe — TypeScript catches errors at build time
+// 3. No external dependency — site never goes down
+// 4. Instant builds — no network calls during SSG
+// 5. Easy to update — just edit the array and deploy`}</CodeBlock>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            This means a new project — complete with case study page, SEO
-            metadata, and sitemap entry — can be live in under 2 minutes.
+            Adding a new project means adding an object to the array and
+            pushing to Git — Netlify auto-deploys in under 60 seconds.
           </p>
         </CaseSection>
 
@@ -241,7 +231,7 @@ export async function generateMetadata({ params }) {
               "next/image with explicit width/height everywhere — no CLS",
               "RevealOnScroll uses Framer Motion useInView — no scroll event listeners",
               "GitHub stats API cached at 1-hour revalidate — never blocks page render",
-              "Static fallback means the site works with or without Appwrite configured",
+              "Static fallback means the site works instantly with zero external dependencies",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-[#2dd4bf] mt-1 shrink-0">▸</span>

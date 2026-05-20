@@ -31,7 +31,7 @@ export const RESUME_DATA = {
         },
         {
             category: "Backend & Data",
-            skills: ["REST APIs", "JWT & RBAC", "Firebase", "Appwrite", "Mongoose", "WebSockets"]
+            skills: ["REST APIs", "JWT & RBAC", "Firebase", "Mongoose", "WebSockets"]
         },
         {
             category: "Tools & Platforms",

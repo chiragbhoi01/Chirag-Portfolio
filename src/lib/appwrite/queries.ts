@@ -1,18 +1,13 @@
-import { Query } from "node-appwrite";
-import { createAdminClient } from "./server";
 import type { Project } from "@/types/project";
 
-const DATABASE_ID = process.env.APPWRITE_DATABASE_ID ?? "";
-const COLLECTION_ID = process.env.APPWRITE_PROJECTS_COLLECTION_ID ?? "";
-
-const FALLBACK_PROJECTS: Project[] = [
+const PROJECTS: Project[] = [
   {
     $id: "luxora",
     title: "Luxora – Full-Stack E-Commerce Platform",
     slug: "luxora",
     description:
       "Fully responsive rental e-commerce platform with an admin CMS for product and order management. Custom Node.js/Express REST API with MongoDB handling complex data models.",
-    content: "",
+    content: "Built a complete e-commerce platform with secure cookie-based JWT authentication, role-based access control protecting customer routes and admin dashboard, and ImageKit for optimized image delivery.",
     techStack: ["Next.js 14", "Node.js", "Express.js", "MongoDB", "TypeScript", "Tailwind CSS", "shadcn/ui", "JWT", "ImageKit"],
     features: ["Admin CMS", "JWT Auth", "RBAC", "REST API"],
     category: "fullstack",
@@ -30,7 +25,7 @@ const FALLBACK_PROJECTS: Project[] = [
     slug: "ecoguard-lakecity",
     description:
       "AI-powered SaaS that classifies waste and optimises municipal collection routes using real-time sensor feeds. State Finalist at Viksit Bharat Summit.",
-    content: "",
+    content: "Integrated Gemini 2.5 Flash API for waste classification. Implemented WebSocket-based live sensor ingestion and overflow alerting. Prototype presented at Viksit Bharat State Summit; achieved State Finalist recognition.",
     techStack: ["Next.js 15", "Gemini 2.5 Flash", "MongoDB", "WebSockets", "Node.js"],
     features: ["AI Classification", "Real-time Sensors", "WebSocket Alerts", "State Finalist"],
     category: "fullstack",
@@ -48,7 +43,7 @@ const FALLBACK_PROJECTS: Project[] = [
     slug: "marshal-tracker",
     description:
       "Productivity tracker with activity logging, analytics charts, and exportable reports backed by a REST API.",
-    content: "",
+    content: "Full-stack productivity application with Chart.js powered analytics dashboard, activity logging with timestamps, and exportable PDF/CSV reports. REST API built with Express.js and MongoDB.",
     techStack: ["React.js", "Node.js", "MongoDB", "Chart.js", "Express.js"],
     features: ["Analytics Dashboard", "Activity Logging", "Exportable Reports", "REST API"],
     category: "fullstack",
@@ -66,7 +61,7 @@ const FALLBACK_PROJECTS: Project[] = [
     slug: "visit-vagad",
     description:
       "Tourism discovery platform for the Vagad region with destination filtering, curated itineraries, local listings, RBAC admin panel, and ImageKit-powered visuals.",
-    content: "",
+    content: "Premium tourism web application for the Vagad region (Banswara & Dungarpur). Features editorial UI, secure JWT authentication, centralized RBAC with 13 granular permissions, audit logging, and direct-to-ImageKit uploads with real-time transformations.",
     techStack: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT", "ImageKit"],
     features: ["RBAC Admin", "JWT Auth", "ImageKit Uploads", "Filterable Grid"],
     category: "fullstack",
@@ -80,110 +75,22 @@ const FALLBACK_PROJECTS: Project[] = [
   },
 ];
 
-function toProject(doc: Record<string, unknown>): Project {
-  return {
-    $id: String(doc.$id ?? ""),
-    title: String(doc.title ?? ""),
-    slug: String(doc.slug ?? ""),
-    description: String(doc.description ?? ""),
-    content: String(doc.content ?? ""),
-    techStack: Array.isArray(doc.techStack) ? doc.techStack.map((x) => String(x)) : [],
-    features: Array.isArray(doc.features) ? doc.features.map((x) => String(x)) : [],
-    category: (doc.category as Project["category"]) ?? "other",
-    githubUrl: typeof doc.githubUrl === "string" ? doc.githubUrl : undefined,
-    liveUrl: typeof doc.liveUrl === "string" ? doc.liveUrl : undefined,
-    coverImage: typeof doc.coverImage === "string" ? doc.coverImage : undefined,
-    featured: Boolean(doc.featured),
-    status: (doc.status as Project["status"]) ?? "production",
-    problemStatement: typeof doc.problemStatement === "string" ? doc.problemStatement : undefined,
-    challenges: typeof doc.challenges === "string" ? doc.challenges : undefined,
-    createdAt: String(doc.createdAt ?? new Date(0).toISOString()),
-  };
-}
-
-function isAppwriteConfigured(): boolean {
-  return Boolean(
-    process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID &&
-      process.env.APPWRITE_DATABASE_ID &&
-      process.env.APPWRITE_PROJECTS_COLLECTION_ID &&
-      process.env.APPWRITE_API_KEY
-  );
-}
-
 export async function getProjects(): Promise<Project[]> {
-  if (!isAppwriteConfigured()) return [];
-
-  try {
-    const { databases } = createAdminClient();
-    const response = await databases.listDocuments(DATABASE_ID, COLLECTION_ID, [
-      Query.orderDesc("createdAt"),
-      Query.limit(50),
-    ]);
-    return response.documents.map((doc) => toProject(doc as unknown as Record<string, unknown>));
-  } catch {
-    return [];
-  }
+  return PROJECTS;
 }
 
 export async function getFeaturedProjects(): Promise<Project[]> {
-  if (!isAppwriteConfigured()) return FALLBACK_PROJECTS;
-
-  try {
-    const { databases } = createAdminClient();
-    const response = await databases.listDocuments(DATABASE_ID, COLLECTION_ID, [
-      Query.equal("featured", true),
-      Query.orderDesc("createdAt"),
-      Query.limit(6),
-    ]);
-    const projects = response.documents.map((doc) => toProject(doc as unknown as Record<string, unknown>));
-    return projects.length > 0 ? projects : FALLBACK_PROJECTS;
-  } catch {
-    return FALLBACK_PROJECTS;
-  }
+  return PROJECTS.filter((p) => p.featured);
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  if (!isAppwriteConfigured()) return null;
-
-  try {
-    const { databases } = createAdminClient();
-    const response = await databases.listDocuments(DATABASE_ID, COLLECTION_ID, [
-      Query.equal("slug", slug),
-      Query.limit(1),
-    ]);
-    if (response.documents.length === 0) return null;
-    return toProject(response.documents[0] as unknown as Record<string, unknown>);
-  } catch {
-    return null;
-  }
+  return PROJECTS.find((p) => p.slug === slug) ?? null;
 }
 
 export async function getProjectSlugs(): Promise<string[]> {
-  if (!isAppwriteConfigured()) return [];
-
-  try {
-    const { databases } = createAdminClient();
-    const response = await databases.listDocuments(DATABASE_ID, COLLECTION_ID, [
-      Query.select(["slug"]),
-      Query.limit(100),
-    ]);
-    return response.documents.map((d) => d.slug as string);
-  } catch {
-    return [];
-  }
+  return PROJECTS.map((p) => p.slug);
 }
 
 export async function getCurrentlyBuilding(): Promise<Project[]> {
-  if (!isAppwriteConfigured()) return [];
-
-  try {
-    const { databases } = createAdminClient();
-    const response = await databases.listDocuments(DATABASE_ID, COLLECTION_ID, [
-      Query.equal("status", "building"),
-      Query.limit(3),
-    ]);
-    return response.documents.map((doc) => toProject(doc as unknown as Record<string, unknown>));
-  } catch {
-    return [];
-  }
+  return PROJECTS.filter((p) => p.status === "building");
 }

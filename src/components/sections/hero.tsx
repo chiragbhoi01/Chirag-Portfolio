@@ -18,7 +18,11 @@ const fadeUp = (delay: number) => ({
 
 export function Hero() {
   return (
-    <section className="space-y-7 pt-4">
+    <section className="relative space-y-7 pt-4">
+      {/* Animated gradient blobs */}
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-[#2dd4bf]/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
+      <div className="absolute -bottom-10 -right-20 w-60 h-60 bg-[#2dd4bf]/5 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
+
       {/* Status badge */}
       <motion.div {...fadeUp(0)}>
         <Badge
@@ -31,12 +35,14 @@ export function Hero() {
         </Badge>
       </motion.div>
 
-      {/* Name */}
+      {/* Name with gradient text */}
       <motion.h1
         {...fadeUp(0.08)}
         className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
       >
-        {RESUME_DATA.personal.name}
+        <span className="bg-gradient-to-r from-foreground via-foreground to-[#2dd4bf] bg-clip-text text-transparent">
+          {RESUME_DATA.personal.name}
+        </span>
       </motion.h1>
 
       {/* Specific positioning */}
@@ -61,10 +67,14 @@ export function Hero() {
         className="flex flex-wrap gap-x-6 gap-y-2 py-1"
       >
         {RESUME_DATA.stats.map((stat) => (
-          <div key={stat.label} className="flex items-center gap-1.5">
+          <motion.div
+            key={stat.label}
+            whileHover={{ scale: 1.05, y: -2 }}
+            className="flex items-center gap-1.5 cursor-default"
+          >
             <span className="text-[#2dd4bf] font-bold text-sm tabular-nums">{stat.value}</span>
             <span className="text-muted-foreground text-xs">{stat.label}</span>
-          </div>
+          </motion.div>
         ))}
       </motion.div>
 
@@ -75,7 +85,7 @@ export function Hero() {
       >
         <Button
           size="lg"
-          className="bg-[#2dd4bf] text-black hover:bg-[#2dd4bf]/90 font-semibold h-11 px-6"
+          className="bg-[#2dd4bf] text-black hover:bg-[#2dd4bf]/90 font-semibold h-11 px-6 shadow-[0_0_20px_rgba(45,212,191,0.3)] hover:shadow-[0_0_30px_rgba(45,212,191,0.5)] transition-shadow"
           asChild
         >
           <Link href="#projects">

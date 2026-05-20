@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CustomCursor } from "@/components/animations/custom-cursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -82,9 +83,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://cloud.appwrite.io" />
-      </head>
+      <head />
       <body className="font-sans bg-background text-foreground antialiased" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
@@ -92,6 +91,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <CustomCursor />
           {children}
         </ThemeProvider>
       </body>
